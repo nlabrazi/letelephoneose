@@ -31,11 +31,8 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-<<<<<<< HEAD
 #Custom GEM :
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-=======
 gem 'devise'
->>>>>>> staging
