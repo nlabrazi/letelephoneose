@@ -40,7 +40,7 @@ gem 'pundit'
 gem 'faker'
 gem 'table_print'
 gem 'cloudinary'
-gem 'dotenv'
+gem 'dotenv-rails'
 
 
 #REMOVE IF I DID'NT (|Boris)
