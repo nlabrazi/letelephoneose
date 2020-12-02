@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/mentions', to: 'pages#mentions'
 
+  resources :artists
+
 end
