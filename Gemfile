@@ -40,3 +40,8 @@ gem 'pundit'
 gem 'faker'
 gem 'table_print'
 gem 'cloudinary'
+gem 'dotenv'
+
+
+#REMOVE IF I DID'NT (|Boris)
+gem 'mini_racer'
