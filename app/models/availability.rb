@@ -2,20 +2,26 @@ class Availability < ApplicationRecord
   belongs_to :artist
   has_one :order
 
-  def slot
+  def creating_slots(avail_params, artist_id)
+  	
     duration = 15 * 60
-    start_date = self.start_date
-    end_date = start_date + duration
-    while end_date <= self.end_date
+    i = true
+    
+    start_date = avail_params{:start_date}
+    
+    while (start_date < avail_params{:end_date})
       slot = Availability.new
-      slot.artist_id = self.artist_id
-      slot.start_date = start_date
-      slot.end_date = end_date
+      slot.artist_id = artist_id
       slot.is_booked = false
-      slot.save
+      slot.start_date = start_date
+      slot.end_date = start_date + duration - 1
+      puts 'tout va bien'
+      i = slot.save && i
 
-      start_date = end_date
-      end_date += duration
+      start_date = slot.end_date + 1 
     end
+    
+    return i
   end
+  
 end
