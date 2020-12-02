@@ -1,3 +1,3 @@
 class Order < ApplicationRecord
-  belongs_to :user, :service, :availibility
+  belongs_to :user, :service, :availability
 end

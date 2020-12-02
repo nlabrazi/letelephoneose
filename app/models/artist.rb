@@ -1,5 +1,5 @@
 class Artist < ApplicationRecord
   belongs_to :user
-  has_many :availibilities
-  #has_many :orders through: :availibilities
+  has_many :availabilities
+  has_many :orders, through: :availabilities
 end
