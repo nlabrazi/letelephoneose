@@ -41,7 +41,6 @@ gem 'faker'
 gem 'table_print'
 gem 'cloudinary'
 gem 'dotenv-rails'
-
-
 #REMOVE IF I DID'NT (|Boris)
 gem 'mini_racer'
+gem 'devise-i18n'
