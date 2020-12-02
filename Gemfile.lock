@@ -86,9 +86,11 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     erubi (1.10.0)
     execjs (2.7.0)
-    faker (2.14.0)
+    faker (2.15.1)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
     ffi (1.13.1-java)
@@ -259,6 +261,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  devise-i18n
   faker
   font-awesome-sass
   jbuilder (~> 2.7)
