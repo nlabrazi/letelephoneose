@@ -1,3 +1,4 @@
 class Availability < ApplicationRecord
-  belongs_to :order, :artist
+  belongs_to :artist
+  has_one :order
 end
