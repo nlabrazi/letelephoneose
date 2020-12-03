@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,10 +6,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    record.user == user
-  end
-
-  def create?
     true
   end
 
@@ -17,15 +13,11 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def update?
-    true
-  end
-
-  def destroy?
-    true
-  end
-
   def new?
+    true
+  end
+
+  def create?
     true
   end
 end
