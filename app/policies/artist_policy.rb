@@ -5,6 +5,9 @@ class ArtistPolicy < ApplicationPolicy
       #scope.where(user: user) #to display only created by me !
     end
   end
+  def index?
+    true
+  end
 
   def create?
     true

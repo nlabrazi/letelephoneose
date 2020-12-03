@@ -1,0 +1,30 @@
+<p>
+  <h2>Name:</h2>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <% @availabilities.each do |availability| %>
+  <table>
+    <thead>
+      <tr>
+        <th> Heure de début </th> 
+        <th> Heure de fin </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% if availability.is_booked == false %>
+        <td> <%= availability.start_date %> </td>
+        <td> <%= availability.end_date %> </td>
+        <td> <%= availability.id %> </td>
+
+        <td><%= button_to 'Réserver ce créneau', artist_orders_path(availability_id: availability.id), method: :post %><td>
+        <% end %>
+       
+      </tr>
+    </tbody>
+  </table>
+  
+  <% end %>
+</p>
