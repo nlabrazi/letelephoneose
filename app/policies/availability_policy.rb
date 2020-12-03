@@ -16,5 +16,4 @@ class AvailabilityPolicy < ApplicationPolicy
 	def destroy?
 		true
 	end
-	
 end
