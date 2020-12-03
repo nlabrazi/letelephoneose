@@ -90,14 +90,14 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    devise-i18n (1.9.2)
-      devise (>= 4.7.1)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.15.1)
@@ -241,6 +241,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simple_calendar (2.4.1)
+      rails (>= 3.0)
     simple_form (5.0.3)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -311,8 +313,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   cloudinary
   devise
-  dotenv-rails
   devise-i18n
+  dotenv-rails
   faker
   font-awesome-sass
   jbuilder (~> 2.7)
@@ -324,6 +326,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   sass-rails (>= 6)
   selenium-webdriver
+  simple_calendar
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
