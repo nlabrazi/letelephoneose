@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def new
-    #@availability = Availability.find(params[:id])
     @user = current_user
     @artist = Artist.find(params[:artist_id])
     @availabilities = @artist.availabilities
