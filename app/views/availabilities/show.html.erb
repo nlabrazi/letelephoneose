@@ -56,14 +56,18 @@
 
   <tbody>
    <% date_range.each do |day| %>
-   hour = day.midnight
+   <% hour = day.midnight %>
     <td>
       <table>
         <% 96.times do |quarter| %>
             <tr>   
               <td>
-                <%= hour %> : <%= hour + 15*60 %>
-                <!--<%=(quarter*15)/60 %> : <%=(quarter*15)%60 %>-->
+                <%= hour.strftime("%H:%M") %> : <%= (hour = hour + 15*60).strftime("%k:%M") %>
+                <% @artist.availabilities.each do |slot| %>
+                  <% if slot.start_date == hour %>
+                    creneau pas OK
+                  <% end %>
+                <% end %>
               </td>
             </tr>
         <% end%>
