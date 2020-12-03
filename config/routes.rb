@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :artists
   resources :dashboard, only: [:index]
-  resources :dashboard_artists, only: [:show]
   resources :availabilities, only: [:create, :show, :destroy]
 
 end

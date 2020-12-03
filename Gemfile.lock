@@ -90,14 +90,14 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    devise-i18n (1.9.2)
-      devise (>= 4.7.1)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.15.1)
@@ -156,6 +156,9 @@ GEM
     pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     pg (1.2.3-x86-mingw32)
+    pg_search (2.3.5)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     public_suffix (4.0.6)
     puma (4.3.7)
       nio4r (~> 2.0)
@@ -293,6 +296,7 @@ GEM
     websocket-driver (0.7.3-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
@@ -311,14 +315,15 @@ DEPENDENCIES
   capybara (>= 2.15)
   cloudinary
   devise
-  dotenv-rails
   devise-i18n
+  dotenv-rails
   faker
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mini_racer
   pg (>= 0.18, < 2.0)
+  pg_search
   puma (~> 4.1)
   pundit
   rails (~> 6.0.3, >= 6.0.3.4)
@@ -333,6 +338,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
+  will_paginate
 
 RUBY VERSION
    ruby 2.7.1p83

@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Artiste?</th>
+      <th scope="col">TODO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.is_artist %></td>
+      <td> <%= check_box_tag 'is_artist', 'Artiste?' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

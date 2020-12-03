@@ -51,7 +51,6 @@ class ArtistsController < ApplicationController
     params.require(:artist).permit(:name, :description, :user_id)
   end
 
-
   def set_artist
     @artist = Artist.find(params[:id])
     authorize @artist #pour le mettre un peu partout car define plus haut 😎
