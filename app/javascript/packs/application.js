@@ -21,9 +21,6 @@ document.addEventListener("turbolinks:load", () => {
 		minuteIncrement: 15,
 	})
 })
-console.log("###############################")
-console.log(flatpickr.input)
-console.log("###############################")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
