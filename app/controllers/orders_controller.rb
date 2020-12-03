@@ -20,20 +20,22 @@ class OrdersController < ApplicationController
 
   end
   def create
-    @availability = availability.find(params[:availibility_id])
+    @user = current_user
+    @availability = Availability.find(params[:availability_id])
     @order = Order.new
     @order.user = current_user
-    @order.availability = @availability
-    @order.service = 1
-
-    if order.save
+    @order.service_id = 1
+    @order.availability_id = @availability.id
+    @availability.is_booked = true
+    if @order.save && @availability.save
       flash.notice = "Votre réservation a bien été créée"
       render :show
     else
       flash.alert = "Une erreur est survenue #{@order.errors.messages}"
       redirect_to root_path
     end
-
+    authorize @user
+    authorize @order
   end
 
   private

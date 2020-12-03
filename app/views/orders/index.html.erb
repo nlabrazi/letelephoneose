@@ -1,10 +1,10 @@
-<p>
+<!-- <p>
   <h2>Name:</h2>
-  <%= @artist.name %>
+  <%#= @artist.name %>
 </p>
 
 <p>
-  <% @availabilities.each do |availability| %>
+  <% #@availabilities.each do |availability| %>
   <table>
     <thead>
       <tr>
@@ -17,7 +17,7 @@
       <tr>
         <td> <%= availability.start_date %> </td>
         <td> <%= availability.end_date %> </td>
-        <td><%= button_to "Réserver ce créneau", availability_path(availability.id),
+        <td><%#= button_to "Réserver ce créneau", availability_path(availability.id),
         method: :delete,
         data: { confirm: t('.confirm', default: 'Etes-vous sûr ?') },
         class: 'delete' %> </td>
@@ -25,5 +25,5 @@
     </tbody>
   </table>
   
-  <% end %>
-</p>
+  <%# end %>
+</p> -->
