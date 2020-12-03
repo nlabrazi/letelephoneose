@@ -5,15 +5,15 @@ class AvailabilityPolicy < ApplicationPolicy
 		end
 	end
 
-	def show
+	def show?
 		true
 	end
 
-	def create
+	def create?
 		true
 	end
 
-	def destroy
+	def destroy?
 		true
 	end
 	

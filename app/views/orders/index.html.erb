@@ -1,0 +1,29 @@
+<p>
+  <h2>Name:</h2>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <% @availabilities.each do |availability| %>
+  <table>
+    <thead>
+      <tr>
+        <th> Heure de début </th> 
+        <th> Heure de fin </th>
+        <th> Supprimer </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= availability.start_date %> </td>
+        <td> <%= availability.end_date %> </td>
+        <td><%= button_to "Réserver ce créneau", availability_path(availability.id),
+        method: :delete,
+        data: { confirm: t('.confirm', default: 'Etes-vous sûr ?') },
+        class: 'delete' %> </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <% end %>
+</p>
