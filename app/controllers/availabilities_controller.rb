@@ -10,7 +10,6 @@ class AvailabilitiesController < ApplicationController
 		@availability = Availability.new(avail_params)
 		@availability.artist_id = @artist.id 
 		@availability.is_booked = false
-
 		if @availability.save
 			flash.notice = "Votre disponibilité a bien été ajoutée"
 			redirect_to availability_path(current_user)
