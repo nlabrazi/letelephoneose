@@ -17,11 +17,10 @@
       <tr>
         <td> <%= availability.start_date %> </td>
         <td> <%= availability.end_date %> </td>
-        <td><%#= button_to 'Réserver ce créneau', orders_path(availability.id) %><td>
-          <td><%= button_to "Réserver ce créneau", orders_path(availability.id),
-        method: :create,
-        data: { confirm: t('.confirm', default: 'Etes-vous sûr ?') },
-        class: 'create' %> </td>
+        <td> <%= availability.id %> </td>
+
+        <td><%= button_to 'Réserver ce créneau', artist_orders_path(availability_id: availability.id), method: :post %><td>
+
        
       </tr>
     </tbody>
