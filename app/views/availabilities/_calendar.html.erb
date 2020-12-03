@@ -5,6 +5,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
+        <th>
+            créneau horaire
+        </th>
       <% date_range.each do |day| %>
         <th> <%= day %> </th>
       <% end %>
@@ -12,9 +15,10 @@
   </thead>
 
   <tbody>
-   <% date_range.each do |day| %>
-   <% hour = day.midnight %>
+
     <td>
+    <% hour = date_range[0].midnight %>
+    
       <table>
         <% 96.times do |quarter| %>
             <tr>   
@@ -30,6 +34,40 @@
         <% end%>
       </table>
     </td>
+   <% date_range.each do |day| %>
+   <% hour = day.midnight - 15 * 60 %>
+    <td>
+      <table>
+        <% 96.times do |quarter| %>
+            <tr>   
+              <td>
+                <% (hour = hour + 15*60).strftime("%k:%M") %>
+                <% slot = @artist.availabilities.find {|slot| slot.start_date == hour} %>
+                <% if slot != nil%>
+                    <% if slot.is_booked %>
+                            creneau pas OK
+                        <% else %>
+                            disponible
+                    <% end %>
+                    <% else %>
+                    nil
+                <% end %>
+              </td>
+            </tr>
+        <% end%>
+      </table>
+    </td>
    <% end %>
   </tbody>
 </table>
+
+<!--
+
+                <% @artist.availabilities.each do |slot| %>
+                    <% if slot.start_date == hour %>
+                                creneau pas OK
+                        <% else %>
+                            disponible
+                    <% end %>
+                <% end %>
+-->
