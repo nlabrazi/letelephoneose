@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_151438) do
+ActiveRecord::Schema.define(version: 2020_12_03_184324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_151438) do
     t.string "last_name"
     t.string "phone"
     t.boolean "is_admin", default: false, null: false
-    t.boolean "is_artist"
+    t.boolean "is_artist", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
