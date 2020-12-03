@@ -1,8 +1,8 @@
 class Availability < ApplicationRecord
   belongs_to :artist
   has_one :order
-
-def slot
+  
+  def slot
     duration = 15 * 60
     start_date = self.start_date
     end_date = start_date + duration
