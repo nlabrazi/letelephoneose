@@ -2,7 +2,7 @@
 <% start_date = Date.today %>
 <% date_range = (start_date.beginning_of_week..start_date.end_of_week).to_a %>
 
-<table class="table table-striped">
+<table class="table .table-bordered">
   <thead>
     <tr>
         <th>
@@ -23,12 +23,9 @@
         <% 96.times do |quarter| %>
             <tr>   
               <td>
-                <%= hour.strftime("%H:%M") %> : <%= (hour = hour + 15*60).strftime("%k:%M") %>
-                <% @artist.availabilities.each do |slot| %>
-                  <% if slot.start_date == hour %>
-                    creneau pas OK
-                  <% end %>
-                <% end %>
+                    <p>
+                      <%= hour.strftime("%H:%M") %> : <%= (hour = hour + 15*60).strftime("%k:%M") %>
+                      </p>
               </td>
             </tr>
         <% end%>
@@ -41,7 +38,7 @@
         <% 96.times do |quarter| %>
             <tr>   
               <td>
-                <% (hour = hour + 15*60).strftime("%k:%M") %>
+                <% (hour = hour + 15*60) %>
                 <% slot = @artist.availabilities.find {|slot| slot.start_date == hour} %>
                 <% if slot != nil%>
                     <% if slot.is_booked %>
