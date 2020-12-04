@@ -16,7 +16,7 @@
     <tr>
     	<td>
     	
-    	<img src="<%= artist.user.avatar %>" alt="artist picture" style="max-width:100%; max-height: 20vh;" class="mx-auto">
+    	<%= image_tag  User.all.find(Artist.all.find(artist.id).user_id).avatar %> 
     	
     	</td>
       <td><%= artist.name %></td>
@@ -29,4 +29,8 @@
     </tr>
     <% end %>
   </tbody>
+  
+  <br />
+
+
 </table>
