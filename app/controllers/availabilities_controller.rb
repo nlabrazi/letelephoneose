@@ -11,10 +11,10 @@ class AvailabilitiesController < ApplicationController
     @availability.artist_id = @artist.id
     if @availability.slot
       flash.notice = "Votre disponibilité a bien été ajoutée"
-      redirect_to availability_path(current_user)
+      redirect_to dashboard_index_path
     else
       flash.alert = "Une erreur est survenue #{@availability.errors.messages}"
-      render :show
+      redirect_to dashboard_index_path
     end
   end
 
@@ -22,10 +22,10 @@ class AvailabilitiesController < ApplicationController
     @availability = Availability.find(params[:id])
     if @availability.destroy
       flash.notice = "Votre disponibilité a bien été SUPPRIME"
-      redirect_to availability_path(current_user)
+      redirect_to dashboard_index_path
     else
       flash.alert = "Une erreur est survenue #{@availability.errors.messages}"
-      render :show
+      redirect_to dashboard_index_path
     end
   end
 
