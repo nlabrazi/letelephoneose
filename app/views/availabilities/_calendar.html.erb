@@ -45,12 +45,18 @@
                 <% slot = @artist.availabilities.find {|slot| slot.start_date == hour} %>
                 <% if slot != nil%>
                     <% if slot.is_booked %>
-                            creneau pas OK
+                            <p class="text-success">
+                                reserve 
+                            </p>
                         <% else %>
-                            disponible
+                            <p class="text-warning">
+                                disponible
+                            </p>
                     <% end %>
                     <% else %>
-                    nil
+                    <p class="text-danger">
+                        Indisponible
+                    </p>
                 <% end %>
               </td>
             </tr>
