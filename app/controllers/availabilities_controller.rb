@@ -1,6 +1,14 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_artist, only: [:show, :create, :destroy]
 
+  def index
+    @artists = policy_scope(Availability)
+    @user = current_user
+    @artist = Artist.find(params[:artist_id])
+    @availabilities = @artist.availabilities
+    authorize @user
+  end
+
   def show
     @availability = Availability.new
   end
