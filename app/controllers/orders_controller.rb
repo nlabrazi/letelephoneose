@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     @availability = Availability.find(params[:availability_id])
     @order = Order.new
     @order.user = current_user
-    @order.service_id = 5
+    @order.service_id = Service.all.sample.id
     @order.availability_id = @availability.id
     @availability.is_booked = true
     if @order.save && @availability.save
