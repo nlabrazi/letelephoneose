@@ -17,4 +17,4 @@
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
-<%= link_to 'Réserver cet artist', new_artist_order_path(@artist.id) %>
+<%= link_to 'Réserver cet artist', artist_availabilities_path(@artist.id) %>
