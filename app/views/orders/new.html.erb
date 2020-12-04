@@ -3,6 +3,6 @@
 <%= simple_form_for ([@artist, @availability, @order]) do |f| %>
   <%= f.input :target %>
   <%= f.input :description %>
-  <%#= f.input :service,as: :select %>
+  <%= f.select(:service, options_for_select(@services)) %>
   <%= f.button :submit %>
 <% end %>
