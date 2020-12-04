@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   get '/mentions', to: 'pages#mentions'
 
   resources :artists do
-    resources :orders
+    resources :availabilities do
+      resources :orders
+    end
   end
   resources :dashboard, only: [:index]
-  resources :availabilities, only: [:create, :show, :destroy]
+  # resources :availabilities, only: [:create, :show, :destroy]
 
 end
