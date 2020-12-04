@@ -14,6 +14,11 @@
   <tbody>
     <% @artists.each do |artist| %>
     <tr>
+    	<td>
+    	
+    	<%= image_tag  User.all.find(Artist.all.find(artist.id).user_id).avatar %> 
+    	
+    	</td>
       <td><%= artist.name %></td>
       <td><%= artist.description %></td>
       <td><%= artist.user.email %></td>
@@ -24,4 +29,8 @@
     </tr>
     <% end %>
   </tbody>
+  
+  <br />
+
+
 </table>

@@ -63,6 +63,19 @@ p "Artists creation DONE, result below.... "
 puts ""
 tp Artist.all
 
+puts ""
+
+p "Profil picture to the artists"
+User.find(Artist.all.find(1).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/20190720-La-Guerre-du-Son-Knuckle-Head-5562_w0llzm.jpg"
+User.find(Artist.all.find(1).user_id).save
+User.find(Artist.all.find(2).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/piano-2585949_1280_1_ia43vh.webp"
+User.find(Artist.all.find(2).user_id).save
+User.find(Artist.all.find(3).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/35858.HR_z5ahow.jpg"
+User.find(Artist.all.find(3).user_id).save
+User.find(Artist.all.find(4).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/Art-argent-4-5-ce-que-gagnent-les-solistes_yrstuj.jpg"
+User.find(Artist.all.find(4).user_id).save
+User.find(Artist.all.find(5).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/images_ino4nz.jpg"
+User.find(Artist.all.find(5).user_id).save
 
 puts ""
 
