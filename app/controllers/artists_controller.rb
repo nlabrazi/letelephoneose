@@ -3,11 +3,9 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = policy_scope(Artist)
-    #@artists = Artist.all
   end
 
   def show
-    #authorize @artist
   end
 
   def new
@@ -32,7 +30,6 @@ class ArtistsController < ApplicationController
 
   def update
     @artist.update(artist_params)
-
     if @artist.save
       redirect_to artists_path, notice: "Artist mis à jour"
     else

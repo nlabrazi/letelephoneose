@@ -23,12 +23,12 @@ class OrdersController < ApplicationController
     @availability = Availability.find(params[:availability_id])
     @order = Order.new
     @order.user = current_user
-    @order.service_id = 1
+    @order.service_id = 5
     @order.availability_id = @availability.id
     @availability.is_booked = true
     if @order.save && @availability.save
       flash.notice = "Votre réservation a bien été créée"
-      render :show
+      redirect_to dashboard_index_path
     else
       flash.alert = "Une erreur est survenue #{@order.errors.messages}"
       redirect_to root_path

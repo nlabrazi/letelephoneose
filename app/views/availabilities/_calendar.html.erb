@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <% date_range.each do |day| %>
-        <th> <%= day %> </th>
+      <th> <%= day %> </th>
       <% end %>
     </tr>
   </thead>
@@ -14,22 +14,22 @@
   <tbody>
    <% date_range.each do |day| %>
    <% hour = day.midnight %>
-    <td>
-      <table>
-        <% 96.times do |quarter| %>
-            <tr>   
-              <td>
-                <%= hour.strftime("%H:%M") %> : <%= (hour = hour + 15*60).strftime("%k:%M") %>
-                <% @artist.availabilities.each do |slot| %>
-                  <% if slot.start_date == hour %>
-                    creneau pas OK
-                  <% end %>
-                <% end %>
-              </td>
-            </tr>
-        <% end%>
-      </table>
-    </td>
-   <% end %>
-  </tbody>
+   <td>
+    <table>
+      <% 96.times do |quarter| %>
+      <tr>
+        <td>
+          <%= hour.strftime("%H:%M") %> : <%= (hour = hour + 15*60).strftime("%k:%M") %>
+          <% @artist.availabilities.each do |slot| %>
+          <% if slot.start_date == hour %>
+          creneau pas OK
+          <% end %>
+          <% end %>
+        </td>
+      </tr>
+      <% end%>
+    </table>
+  </td>
+  <% end %>
+</tbody>
 </table>

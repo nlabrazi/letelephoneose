@@ -3,7 +3,17 @@ class DashboardController < ApplicationController
 
   def index
     @user = policy_scope(User)
-    @users = User.all.paginate(page: params[:page])
+    @orders = current_user.orders.paginate(page: params[:page])
+    @artist = current_user.artist
+
+    if params[:search]
+      @search_results_posts = User.search_by_name(params[:search])
+      respond_to do |format|
+        format.js { render partial: 'search-results'}
+      end
+    else
+      @users = User.all.paginate(page: params[:page])
+    end
   end
 
   private

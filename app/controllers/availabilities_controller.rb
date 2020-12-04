@@ -19,7 +19,6 @@ class AvailabilitiesController < ApplicationController
   end
 
   def destroy
-
     @availability = Availability.find(params[:id])
     if @availability.destroy
       flash.notice = "Votre disponibilité a bien été SUPPRIME"
@@ -32,7 +31,7 @@ class AvailabilitiesController < ApplicationController
 
   def set_artist
     @artist = Artist.find_by(user_id: current_user.id)
-    authorize @artist #pour le mettre un peu partout car define plus haut 😎
+    authorize @artist
   end
 
   private
