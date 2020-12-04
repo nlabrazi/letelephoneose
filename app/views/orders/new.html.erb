@@ -3,6 +3,9 @@
 <%= simple_form_for ([@artist, @availability, @order]) do |f| %>
   <%= f.input :target %>
   <%= f.input :description %>
-  <%= f.select(:service, options_for_select(@services)) %>
+  <%#= f.input :service,as: :select %>
+  <%#= f.select(:service, options_for_select(@services)) %>
+  <%= f.input :service, as: :radio_buttons, collection: @services_radio %>
+
   <%= f.button :submit %>
 <% end %>

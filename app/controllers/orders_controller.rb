@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
     @artist = Artist.find(params[:artist_id])
     @availability = Availability.find(params[:availability_id])
     @services = Service.all.map{|s| s.name}
+    @services_radio = Service.all.map{|s| [s.name, s.name]}
     authorize @user
   end
 
