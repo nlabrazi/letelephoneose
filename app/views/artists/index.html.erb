@@ -28,9 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<% if policy(Artist).create? %>
-  <%= link_to 'Créer artist', new_artist_path %>
-<% end %>
