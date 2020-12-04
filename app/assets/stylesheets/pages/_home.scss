@@ -1,40 +1,26 @@
-.custom-font{
-    font-family: Retroking;
-    src: url('../Retroking.ttf');
-}
-
-@media (max-width: 768px) {
-    .carousel-inner .carousel-item > div {
-        display: none;
-    }
-    .carousel-inner .carousel-item > div:first-child {
-        display: block;
-        background-color: red;
-    }
-}
-
-.carousel-inner .carousel-item.active,
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
+.card-cutsom{
+  border-radius: 2em;
+  border: solid 3px #D2F4F4;
+  padding: 1em;
+  margin: 1em 1em;
+  transition-duration: .3s;
+  &:hover{
+    background-color: #D2F4F4;
+  }
+  .head{
+    height: 170px;
+    width: 100%;
+    margin: .5em 0;
     display: flex;
-}
-
-@media (min-width: 768px) {
-    
-    .carousel-inner .carousel-item-right.active,
-    .carousel-inner .carousel-item-next {
-      transform: translateX(33.333%);
+    align-items: center;
+    justify-content: center;
+    .pic{
+      max-height: 100%;
+      max-width: 100%;
     }
-    
-    .carousel-inner .carousel-item-left.active, 
-    .carousel-inner .carousel-item-prev {
-      transform: translateX(-33.333%);
-    }
+  }
 }
 
-.carousel-inner .carousel-item-right,
-.carousel-inner .carousel-item-left{ 
-  transform: translateX(0);
+.jumbotron{
+  background-color: #E83E8C;
 }
-
-
