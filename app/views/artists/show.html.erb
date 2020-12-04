@@ -15,6 +15,9 @@
   <%= @artist.user.email %>
 </p>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
-<%= link_to 'Réserver cet artist', artist_availabilities_path(@artist.id) %>
+<% if policy(@artist).update? %>
+  <%= link_to 'Edit', edit_artist_path(@artist) %> |
+  <%= link_to 'Revenir à la liste des artistes', artists_path %>
+
+  <%= link_to 'Réserver cet artiste', artist_availabilities_path(@artist.id) %>
+<% end %>
