@@ -14,6 +14,12 @@ p " ********************************* "
 
 p "Destroy curent data..."
 
+p "Destroying Orders... #{Order.count} "
+Order.destroy_all
+p "Destroying Availabilities... #{Availability.count} "
+Availability.destroy_all
+p "Destroying Services... #{Service.count} "
+Service.destroy_all
 p "Destroying Artists... #{Artist.count} "
 Artist.destroy_all
 p "Destroying Users... #{User.count} "
@@ -25,7 +31,7 @@ puts ""
 
 
 p "Creating users...and Admin"
-5.times do
+15.times do
     u = User.new
     u.first_name = Faker::Name.first_name
     u.last_name = Faker::Name.last_name
@@ -54,3 +60,51 @@ end
 p "Artists creation DONE, result below.... "
 puts ""
 tp Artist.all
+
+
+puts ""
+
+
+p "Creating services..."
+service1 = Service.create! name: "Préferée", price: 9.99,  description: "Votre chanson préférée dans le combiné"
+service2 = Service.create! name: "Surprise", price: 4.99,  description: "Chanson surprise selon l'humeur"
+service3 = Service.create! name: "Blague",   price: 2.99,  description: "Les meilleures blagues pourries"
+service4 = Service.create! name: "Visio",    price: 15.99, description: "BONUS VISIO (parce qu'il faut s'habiller"
+p "Services creation DONE, result below.... "
+puts ""
+tp Service.all
+
+
+puts ""
+
+
+p "Creating availabilities..."
+25.times do
+    av = Availability.new
+    av.artist_id = Artist.all.sample.id
+    av.start_date = Faker::Time.between(from: 2.days.ago, to: Time.now)
+    av.end_date = Faker::Time.forward(days: 5)
+    av.is_booked = false
+    av.save
+end
+p "Availabilities creation DONE, result below.... "
+puts ""
+tp Availability.all
+
+
+puts ""
+
+
+p "Creating orders..."
+5.times do
+    o = Order.new
+    o.user_id = User.all.sample.id
+    o.availability_id = Availability.all.sample.id
+    o.service_id = Service.all.sample.id
+    o.target = Faker::PhoneNumber.phone_number
+    o.description = Faker::Games::WorldOfWarcraft.quote
+    o.save
+end
+p "Availabilities creation DONE, result below.... "
+puts ""
+tp Order.all

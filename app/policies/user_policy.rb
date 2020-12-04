@@ -4,16 +4,28 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def index?
+    record.user == user
+  end
+
+  def create?
     true
   end
+
   def show?
     true
   end
-  def new?
+
+  def update?
     true
   end
-  def create?
+
+  def destroy?
+    true
+  end
+
+  def new?
     true
   end
 end

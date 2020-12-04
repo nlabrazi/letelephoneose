@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   resources :artists do
     resources :orders
   end
-  resources :dashboard_artists, only: [:show]
+  resources :dashboard, only: [:index]
   resources :availabilities, only: [:create, :show, :destroy]
-
 
 end

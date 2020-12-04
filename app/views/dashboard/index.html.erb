@@ -1,0 +1,32 @@
+<% if current_user.is_admin? %>
+
+<h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Administrateur</h1>
+<p>Bienvenue admin</p>
+<div class="form-group">
+  <div class="searchbar-dashboard">
+    <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "", placeholder:"Utilisateurs, artiste..."%>
+    <%= submit_tag "Rechercher", class: "btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div id="users">
+  <%= render 'users' %>
+</div>
+
+<% elsif current_user.is_artist? %>
+
+<h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Artiste</h1>
+<p>Bienvenue artist</p>
+
+
+
+<% else %>
+
+<h1>Dashboard user</h1>
+<h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Utilisateur</h1>
+
+
+<% end %>
+
