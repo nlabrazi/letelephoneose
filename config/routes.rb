@@ -11,6 +11,5 @@ Rails.application.routes.draw do
     end
   end
   resources :dashboard, only: [:index]
-  # resources :availabilities, only: [:create, :show, :destroy]
 
 end
