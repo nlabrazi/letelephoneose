@@ -30,7 +30,7 @@ p "-----------------------"
 puts ""
 
 
-p "Creating users...and Admin"
+p "Creating users..."
 15.times do
     u = User.new
     u.first_name = Faker::Name.first_name
@@ -40,7 +40,6 @@ p "Creating users...and Admin"
     u.password = "123456"
     u.save
 end
-admin = User.create(first_name: "admin", last_name: "admin", email:"eveylin.ggg@yopmail.com", phone:"0123456789", is_admin: true, password:"eltelefono")
 p "Users creation DONE, result below.... "
 puts ""
 tp User.all
@@ -55,11 +54,26 @@ p "Creating artists..."
     a.name = Faker::DcComics.hero
     a.description = Faker::Movie.quote
     a.user_id = User.all.sample.id
+    b = User.find(a.user_id)
+    b.is_artist = true
+    b.save
     a.save
 end
 p "Artists creation DONE, result below.... "
 puts ""
 tp Artist.all
+
+
+puts ""
+
+
+p "Creating admin..."
+admin = User.create(first_name: "admin", last_name: "admin", email:"eveylin.ggg@yopmail.com", phone:"0123456789", is_admin: true, password:"eltelefono")
+p "Admin creation DONE"
+
+p "Modification User DONE, Creation Admin Done, result below.... "
+puts ""
+tp User.all
 
 
 puts ""
