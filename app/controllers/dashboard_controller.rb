@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @user = policy_scope(User)
     @orders = current_user.orders.paginate(page: params[:page])
     @artist = current_user.artist
+    @availability = Availability.new
 
     if params[:search]
       @search_results_posts = User.search_by_name(params[:search])
