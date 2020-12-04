@@ -6,7 +6,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    record.user == user
+    record == user
   end
 
   def create?
