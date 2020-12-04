@@ -21,16 +21,7 @@
       <% if policy(artist).edit? %>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
       <% end %>
-      <% if policy(artist).destroy? %>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<% if policy(Artist).create? %>
-  <%= link_to 'Créer artist', new_artist_path %>
-<% end %>
