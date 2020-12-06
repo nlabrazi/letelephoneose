@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
 p " ********************************* "
 p " *                               * "
@@ -12,7 +13,11 @@ p " *         BEGIN OF SEED         * "
 p " *                               * "
 p " ********************************* "
 
+puts ""
+
 p "Destroy curent data..."
+
+puts ""
 
 p "Destroying Orders... #{Order.count} "
 Order.destroy_all
@@ -40,10 +45,16 @@ p "Creating users..."
     u.password = "123456"
     u.save
 end
-p "Users creation DONE, result below.... "
+p "Users creation DONE, result at bottom !"
 puts ""
-tp User.all
-
+p "Creating admin..."
+admin = User.create(first_name: "admin", last_name: "admin", email:"eveylin.ggg@yopmail.com", phone:"0123456789", is_admin: true, password:"eltelefono")
+p "Users & Admin now created, #{User.count}"
+p "please wait a bit"
+5.times do
+  sleep 1
+  puts "...................."
+end
 
 puts ""
 
@@ -54,6 +65,8 @@ p "Creating artists..."
     a.name = Faker::DcComics.hero
     a.description = Faker::Movie.quote
     a.user_id = User.all.sample.id
+    photo = URI.open("https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/20190720-La-Guerre-du-Son-Knuckle-Head-5562_w0llzm.jpg")
+    a.artist_pp.attach(io: photo, filename: 'artist_pp', content_type: 'image/jpg')
     b = User.find(a.user_id)
     b.is_artist = true
     b.save
@@ -66,17 +79,25 @@ tp Artist.all
 
 puts ""
 
-
-p "Creating admin..."
-admin = User.create(first_name: "admin", last_name: "admin", email:"eveylin.ggg@yopmail.com", phone:"0123456789", is_admin: true, password:"eltelefono")
-p "Admin creation DONE"
-
-p "Modification User DONE, Creation Admin Done, result below.... "
-puts ""
+p " ********************************** "
+p "......now displaying all users......"
+p " ********************************** "
 tp User.all
 
 
 puts ""
+
+
+# User.find(Artist.all.find(1).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/20190720-La-Guerre-du-Son-Knuckle-Head-5562_w0llzm.jpg"
+# User.find(Artist.all.find(1).user_id).save
+# User.find(Artist.all.find(2).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/piano-2585949_1280_1_ia43vh.webp"
+# User.find(Artist.all.find(2).user_id).save
+# User.find(Artist.all.find(3).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/35858.HR_z5ahow.jpg"
+# User.find(Artist.all.find(3).user_id).save
+# User.find(Artist.all.find(4).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/Art-argent-4-5-ce-que-gagnent-les-solistes_yrstuj.jpg"
+# User.find(Artist.all.find(4).user_id).save
+# User.find(Artist.all.find(5).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/images_ino4nz.jpg"
+# User.find(Artist.all.find(5).user_id).save
 
 
 p "Creating services..."
@@ -122,3 +143,13 @@ end
 p "Availabilities creation DONE, result below.... "
 puts ""
 tp Order.all
+
+
+puts ""
+
+
+p " ********************************* "
+p " *                               * "
+p " *          END OF SEED          * "
+p " *                               * "
+p " ********************************* "
