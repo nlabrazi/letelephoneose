@@ -5,7 +5,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="container">
 	<% @artists.each do |artist| %>
 		<div class="card-product">
@@ -13,7 +12,6 @@
   		<div class="card-product-infos">
     		<h3><%= artist.name %></h3>
     		<p class="details" style="font-size:20px" ><%= artist.description.truncate(130) %> </p>
-  
     		<div class="container">
   				<div class="row">
     				<div class="col-md-auto">
@@ -31,6 +29,5 @@
     		</div>
   		</div>
 		</div>
-
 	<% end %>
 </div>

@@ -17,6 +17,18 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    true
+  end
+
+  def validate?
+    true
+  end
+
+  def refused?
+    true
+  end
+
   def create?
     true
   end
