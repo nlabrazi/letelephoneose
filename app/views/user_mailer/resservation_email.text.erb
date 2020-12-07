@@ -1,7 +1,14 @@
-Salut <%= @user.first_name %> et bienvenue chez Le telephone Ose !
+Salut <%= @user.first_name %>
 ==========================================================
 
-Tu t'es inscrit en utilisant l'e-mail suivant : <%= @user.email %>.
+Voici un recapitulatif de ta commande :
+
+Destinataire : <%= @order.target %>
+
+Date de debut : <%= @order.availability.start_date %>
+Date de fin : <%= @order.availability.end_date %>
+
+Artiste : <%= @order.availability.artist.name %>
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
 
