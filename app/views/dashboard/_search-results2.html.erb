@@ -1,16 +1,16 @@
 <table id="admin-form" class="table table-bordered">
   <thead>
-    <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Prénom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Téléphone</th>
-      <th scope="col">Artiste?</th>
-      <th scope="col">TODO</th>
-    </tr>
+  <tr>
+    <th scope="col">Nom</th>
+    <th scope="col">Prénom</th>
+    <th scope="col">Email</th>
+    <th scope="col">Téléphone</th>
+    <th scope="col">Artiste?</th>
+    <th scope="col">TODO</th>
+  </tr>
   </thead>
   <tbody>
-  <% @users.each do |user| %>
+  <% users.each do |user| %>
     <tr>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
@@ -19,8 +19,7 @@
       <td><%= user.is_artist %></td>
       <td> <%= check_box_tag 'is_artist', 'Artiste?' %></td>
     </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<%= will_paginate @users %>
