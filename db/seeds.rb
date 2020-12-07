@@ -60,10 +60,10 @@ puts ""
 
 
 p "Creating artists..."
-5.times do
-    a = Artist.new
-    a.name = Faker::DcComics.hero
-    a.description = Faker::Movie.quote
+
+a = Artist.new
+    a.name = "David Le Viking"
+    a.description = "Salut à tous ! Moi c'est David. On me surnomme David le Viking à cause de ma grosse barbe presque rousse ! Je vis actuellement à Lille.  Je suis chanteur professionnel depuis 15 ans maintenant, après 10 ans de chant en tant qu'amateur. Je suis chanteur, pianiste et guitariste pour plusieurs groupes européens (notamment français, belges et luxembourgeois). J'ai quasiment 1400 concerts à mon actif !Je me ferai un plaisir de chanter pour vous. Mon répertoire est plutôt rock / métal mais je peux aussi m'amuser à faire des reprises pop !"
     a.user_id = User.all.sample.id
     photo = URI.open("https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/20190720-La-Guerre-du-Son-Knuckle-Head-5562_w0llzm.jpg")
     a.artist_pp.attach(io: photo, filename: 'artist_pp', content_type: 'image/jpg')
@@ -71,7 +71,52 @@ p "Creating artists..."
     b.is_artist = true
     b.save
     a.save
-end
+ 
+a = Artist.new
+    a.name = "Mathilde Deschamps"
+    a.description = "Chanteuse et pianiste professionnelle, je suis aussi compositrice. Je suis spécialisée dans la musique douce, que j'accompagne de ma voix cristalline. Je suis souvent comparée à Sarah McLachlan et Amy Lee (de Evanescence). J'ai déjà fait des projets pour la radio ou la publicité. J'y travaille régulièrement depuis 5 ans maintenant. Ce sont des projets en plus de mon travail de création pour mon métier en tant qu'indépendant. J'aime chanter et vous égayer votre journée par téléphone me remplit de joie ! Mon répertoire est très vaste, allant des chansons de Disney à de l'opéra. Mais j'excelle surtout dans mes reprises de Lord, Aurora ou (étonnamment !) Britney Spears."
+    a.user_id = User.all.sample.id
+    photo = URI.open("https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/piano-2585949_1280_1_ia43vh.webp")
+    a.artist_pp.attach(io: photo, filename: 'artist_pp', content_type: 'image/jpg')
+    b = User.find(a.user_id)
+    b.is_artist = true
+    b.save
+    a.save
+
+a = Artist.new
+    a.name = "Clovis"
+    a.description = "C'est avec un nom du roi des Francs qu'ainsi m'ont appelé mes parents. Mauvais en Histoire, j'étais davantage attentif en cours de musique ! Ma passion pour le chant et la guitare ont commencé dès le collège ! J'ai maintenant 26 ans et je suis chanteur professionnel depuis 5 ans, après avoir fait mes armes au conservatoire de Bordeaux. Je suis entièrement disponible pour vous, pour chanter au téléphone, avec ma voix soul et funk. Barry White est mon meilleur idole, mais tout comme Marvin Gaye et James Brown"
+    a.user_id = User.all.sample.id
+    photo = URI.open("https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/35858.HR_z5ahow.jpg")
+    a.artist_pp.attach(io: photo, filename: 'artist_pp', content_type: 'image/jpg')
+    b = User.find(a.user_id)
+    b.is_artist = true
+    b.save
+    a.save
+
+a = Artist.new
+    a.name = "Lord Phantom"
+    a.description = "Salutations, je me prénomme Jérôme et je suis chanteur d'opéra. Ténor depuis mes 22 ans dans des choeurs, j'en ai aujourd'hui 34 et j'ai entamé une carrière en tant que soliste dans plusieurs opéras en Europe. La crise du Coronavirus ayant réduit mes possibilités de déplacements et les représentations, je ne me produis désormais plus que dans ma ville natale : Paris. J'interprète les plus grands opéras du monde : du Requiem de Mozart, à Carmen de Bizet, en passant par le Barbier de Séville, de Rossini. Demandez moi n'importe quel solo et je vous le chanterai à l'autre bout du téléphone. A force de pratiquer, j'ai appris à le placer à la bonne distance pour ne pas saturer les décibels ! Note humoristique : j'ai repris l'année dernière des classiques de la chanson française comme Claude François ou Johnny Halliday en version Opéra !"
+    a.user_id = User.all.sample.id
+    photo = URI.open("https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/Art-argent-4-5-ce-que-gagnent-les-solistes_yrstuj.jpg")
+    a.artist_pp.attach(io: photo, filename: 'artist_pp', content_type: 'image/jpg')
+    b = User.find(a.user_id)
+    b.is_artist = true
+    b.save
+    a.save 
+    
+a = Artist.new
+    a.name = "Laura Del Aposta"
+    a.description = "Moi, c'est Laura ! Je suis chanteuse professionnelle depuis 8 ans au sein d'une troupe de Strasbourg. Au sein de ma famille, j'ai toujours baigné dans la vieille chanson française. Pour tout vous dire, quand j'avais 10 ans, j'ai demandé l'intégrale d'Edith Piaf !< br/>Aujourd'hui, je rends hommage ce genre musical que je chéris tant, en reprenant de vieux titres dans des festivals vintages, ou des soirées dansantes à thème. Je crois que ce que j'aime le plus, c'est chanter pour des anniversaires de retraités, à qui je souffle une mélodie chère dans leurs souvenirs.<br /><br />Si vous aussi, vous êtes passionné de Mireille Mathieu, Jacques Brel, Marlene Dietrich, ou encore Gilbert Bécaud, je suis celle qu'il vous faut !"
+    a.user_id = User.all.sample.id
+    photo = URI.open("https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/images_ino4nz.jpg")
+    a.artist_pp.attach(io: photo, filename: 'artist_pp', content_type: 'image/jpg')
+    b = User.find(a.user_id)
+    b.is_artist = true
+    b.save
+    a.save 
+
+
 p "Artists creation DONE, result below.... "
 puts ""
 tp Artist.all
@@ -86,18 +131,6 @@ tp User.all
 
 
 puts ""
-
-
-# User.find(Artist.all.find(1).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/20190720-La-Guerre-du-Son-Knuckle-Head-5562_w0llzm.jpg"
-# User.find(Artist.all.find(1).user_id).save
-# User.find(Artist.all.find(2).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/piano-2585949_1280_1_ia43vh.webp"
-# User.find(Artist.all.find(2).user_id).save
-# User.find(Artist.all.find(3).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/35858.HR_z5ahow.jpg"
-# User.find(Artist.all.find(3).user_id).save
-# User.find(Artist.all.find(4).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/Art-argent-4-5-ce-que-gagnent-les-solistes_yrstuj.jpg"
-# User.find(Artist.all.find(4).user_id).save
-# User.find(Artist.all.find(5).user_id).avatar = "https://res.cloudinary.com/borismd/image/upload/v1607100485/Assets/images_ino4nz.jpg"
-# User.find(Artist.all.find(5).user_id).save
 
 
 p "Creating services..."
