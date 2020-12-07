@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
     if params[:search]
       @search_results_posts = User.search_by_name(params[:search])
       respond_to do |format|
-        format.js { render partial: 'search-results'}
+        format.js { }
       end
     else
       @users = User.all.paginate(page: params[:page])
