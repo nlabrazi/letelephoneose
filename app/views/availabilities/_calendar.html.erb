@@ -1,0 +1,65 @@
+
+<% start_date = Date.today %>
+<% date_range = (start_date.beginning_of_week..start_date.end_of_week).to_a %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>
+            créneau horaire
+        </th>
+      <% date_range.each do |day| %>
+      <th> <%= day %> </th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <td>
+    <% hour = date_range[0].midnight %>
+    
+      <table>
+        <% 96.times do |quarter| %>
+            <tr>   
+              <td>
+                    <p>
+                      <%= hour.strftime("%H:%M") %> : <%= (hour = hour + 15*60).strftime("%k:%M") %>
+                      </p>
+              </td>
+            </tr>
+        <% end%>
+      </table>
+    </td>
+   <% date_range.each do |day| %>
+   <% hour = day.midnight - 15 * 60 %>
+    <td>
+      <table>
+        <% 96.times do |quarter| %>
+            <tr>   
+              <td>
+                <% (hour = hour + 15*60) %>
+                <% slot = @artist.availabilities.find {|slot| slot.start_date == hour} %>
+                <% if slot != nil%>
+                    <% if slot.is_booked %>
+                            <p class="text-success">
+                                reserve 
+                            </p>
+                        <% else %>
+                            <p class="text-success">
+                                disponible
+                            </p>
+                    <% end %>
+                    <% else %>
+                    <p class="text-danger">
+                        Indisponible
+                    </p>
+                <% end %>
+              </td>
+            </tr>
+        <% end%>
+      </table>
+    </td>
+   <% end %>
+  </tbody>
+</table>

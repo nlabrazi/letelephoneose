@@ -1,18 +1,17 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, only: [:new]
+
 
   def index
     @artists = policy_scope(Artist)
-    #@artists = Artist.all
   end
 
   def show
-    #authorize @artist
   end
 
   def new
     @artist = Artist.new
-    authorize @artist
   end
 
   def edit
@@ -32,9 +31,8 @@ class ArtistsController < ApplicationController
 
   def update
     @artist.update(artist_params)
-
     if @artist.save
-      redirect_to artists_path, notice: "Artist mis à jour"
+      redirect_to artists_path, notice: "Artiste mis à jour"
     else
       render :edit, notice: "ERREUR"
     end
@@ -51,9 +49,14 @@ class ArtistsController < ApplicationController
     params.require(:artist).permit(:name, :description, :user_id)
   end
 
-
   def set_artist
     @artist = Artist.find(params[:id])
-    authorize @artist #pour le mettre un peu partout car define plus haut 😎
+    authorize @artist
+  end
+  def set_admin
+    @admin = User.find(current_user.id)
+    if User.find(current_user.id).is_admin
+      authorize @admin
+    end
   end
 end
