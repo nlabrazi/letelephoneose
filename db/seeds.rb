@@ -13,11 +13,15 @@ p " *         BEGIN OF SEED         * "
 p " *                               * "
 p " ********************************* "
 
+
 puts ""
+
 
 p "Destroy curent data..."
 
+
 puts ""
+
 
 p "Destroying Orders... #{Order.count} "
 Order.destroy_all
@@ -55,6 +59,7 @@ p "please wait a bit"
   sleep 1
   puts "...................."
 end
+
 
 puts ""
 
@@ -123,6 +128,7 @@ tp Artist.all
 
 
 puts ""
+
 
 p " ********************************** "
 p "......now displaying all users......"
