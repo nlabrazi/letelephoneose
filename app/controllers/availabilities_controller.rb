@@ -6,7 +6,9 @@ class AvailabilitiesController < ApplicationController
     @user = current_user
     @artist = Artist.find(params[:artist_id])
     @availabilities = @artist.availabilities
-    authorize @user
+    if !@user.nil?
+      authorize @user
+    end
   end
 
   def show

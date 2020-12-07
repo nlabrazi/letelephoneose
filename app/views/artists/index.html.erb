@@ -13,14 +13,14 @@
   		<div class="card-product-infos">
     		<h3><%= artist.name %></h3>
     		<p class="details" style="font-size:20px" ><%= artist.description.truncate(130) %> </p>
-  
+
     		<div class="container">
   				<div class="row">
     				<div class="col-md-auto">
     					<%= link_to 'Plus de détails', artist %>
     				</div>
     				<div class="col-md-auto">
-    					<%= link_to 'Réserver', root_path %>
+    					<%= link_to 'Réserver', artist_path(artist) %>
     				</div>
     				<% if policy(artist).edit? %>
     					<div class="col-md-auto">
