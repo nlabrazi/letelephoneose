@@ -19,10 +19,17 @@ class ArtistPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user || user.is_admin? #via keywords : uniquement le "user" qui a créé & détient le "record" !
+    is_owner?
   end
 
   def destroy?
-    record.user == user || user.is_admin?
+    is_owner?
   end
+
+  private
+
+  def is_owner?
+    user && user == record.user || user && user.is_admin?
+  end
+
 end

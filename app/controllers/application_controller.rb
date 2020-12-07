@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_devise_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: :home
+  #before_action :authenticate_user!, except: :home
   include Pundit
 
   # Pundit: white-list approach.
