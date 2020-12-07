@@ -9,7 +9,7 @@
 <div class="container">
 	<% @artists.each do |artist| %>
 		<div class="card-product">
-  		<%= cl_image_tag artist.artist_pp.key, id: "artist_photo", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  		<%= cl_image_tag artist.artist_pp.key, id: "artist_photo", 'aria-haspopup': true, 'aria-expanded': false %>
   		<div class="card-product-infos">
     		<h3><%= artist.name %></h3>
     		<p class="details" style="font-size:20px" ><%= artist.description.truncate(130) %> </p>

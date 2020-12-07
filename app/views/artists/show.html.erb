@@ -1,23 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1><%= @artist.name %></h1>
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @artist.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @artist.user.email %>
-</p>
-
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<%= cl_image_tag @artist.artist_pp.key, id: "artist_photo", 'aria-haspopup': true, 'aria-expanded': false %>
+		</div>
+		<div class="col" id="description">
+			<p><%= @artist.description %></p>
+		</div>
+	</div>
+	<div class="row">
 <% if policy(@artist).update? %>
   <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <% end %>
 <%= link_to 'Revenir à la liste des artistes', artists_path %>
 
 <%= link_to 'Réserver cet artiste', artist_availabilities_path(@artist.id) %>
+	</div>
+</div>
