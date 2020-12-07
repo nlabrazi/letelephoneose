@@ -18,11 +18,16 @@
 		</div>
 	</div>
 	<div class="row">
-<% if policy(@artist).update? %>
-  <%= link_to 'Edit', edit_artist_path(@artist) %> |
-<% end %>
-<%= link_to 'Revenir à la liste des artistes', artists_path %>
-
-<%= link_to 'Réserver cet artiste', artist_availabilities_path(@artist.id) %>
+		<div class="col">
+			<%= link_to 'Revenir à la liste des artistes', artists_path, class: "btn btn-pinkwhite my-2" %>
+		</div>
+		<div class="col">
+			<%= link_to 'Réserver cet artiste', artist_availabilities_path(@artist.id), class: "btn btn-pinkwhite my-2" %>
+		</div>
+		<div class="col">
+			<% if policy(@artist).update? %>
+				<%= link_to 'Edit', edit_artist_path(@artist), class: "btn btn-pinkwhite my-2" %> |
+			<% end %>
+		</div>	
 	</div>
 </div>
