@@ -18,10 +18,28 @@
       data: { confirm: t('.confirm', default: 'Etes-vous sûr ?') },
       class: 'delete' %> </td>
     </tr>
-    <% end %>
   </tbody>
+  <% end %>
+  <br>
+  <% @b.each do |f| %>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Heure de début</th>
+      <th scope="col">Heure de fin</th>
+      <th scope="col">Qui</th>
+      <th scope="col">Détails</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= f.id %></td>
+      <td><%= f.description %></td>
+    </tr>
+  </tbody>
+  <% end %>
 </table>
-
 
 
 <%= simple_form_for [@artist,@availability] do |form| %>
