@@ -6,7 +6,10 @@
   <p>Bienvenue sur votre tableau de board administrateur</p>
   <div id="dashboard-admin">
     <%= render 'admin' %>
-    <%= render 'search-results' %>
+    <div id="show-result">
+      <%= render 'results' %>        
+      <%= will_paginate @users %>
+    </div>
   </div>
 
   <% elsif current_user.is_artist? %>
