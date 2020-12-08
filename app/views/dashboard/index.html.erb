@@ -1,28 +1,53 @@
-<% if current_user.is_admin? %>
-<h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Administrateur</h1>
-<p>Bienvenue sur votre tableau de board administrateur</p>
-<div id="dashboard-admin">
-  <%= render 'admin' %>
-  <%= render 'search-results' %>
+<div class="container">
+  <br>
+
+  <% if current_user.is_admin? %>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Administrateur</h1>
+  <p>Bienvenue sur votre tableau de board administrateur</p>
+  <div id="dashboard-admin">
+    <%= render 'admin' %>
+    <%= render 'search-results' %>
+  </div>
+
+
+  <% elsif current_user.is_artist? %>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Artiste</h1>
+  <p>Bienvenue sur votre tableau de board d'artiste</p>
+  <div id=dashboard-artist>
+    <nav class="nav nav-pills nav-fill">
+      <a class="nav-item nav-link active" id="home" data-toggle="pill" href="#v-home"  role="tab" aria-controls="v-home" aria-selected="true">Home</a>
+      <a class="nav-item nav-link"        id="orders" data-toggle="pill" href="#v-my-orders"  role="tab" aria-controls="v-my-orders" aria-selected="false">Mes commandes</a>
+      <a class="nav-item nav-link"        id="create" data-toggle="pill" href="#v-my-create" role="tab" aria-controls="v-my-create" aria-selected="false">Créer une dispo</a>
+      <a class="nav-item nav-link"        id="availabilities" data-toggle="pill" href="#v-my-avail" role="tab" aria-controls="v-my-avail" aria-selected="false">Mes disponibilités</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      <div class="tab-pane fade" id="v-home">
+        <img src="https://miro.medium.com/max/700/1*JypjSKNWximg5cGVotnrYA.png" alt="">
+      </div>
+      <div class="tab-pane fade" id="v-my-orders" role="tabpanel" aria-labelledby="orders">
+        <%= render 'artist' %>
+      </div>
+      <div class="tab-pane fade" id="v-my-create" role="tabpanel" aria-labelledby="create">
+        <%= render '/availabilities/show' %>
+      </div>
+      <div class="tab-pane fade" id="v-my-avail" role="tabpanel" aria-labelledby="availabilities">
+        <%= render '/availabilities/calendar' %>
+      </div>
+    </nav>
+  </div>
+
+  <%#= render 'artist' %>
+  <%#= render '/availabilities/show' %>
+  <%#= render '/availabilities/calendar' %>
+
+
+  <% else %>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Utilisateur</h1>
+  <p>Bienvenue sur votre tableau de board d'utilisateur</p>
+  <div id="dashboard-user">
+    <%= render 'user' %>
+  </div>
+
+
+  <% end %>
+
 </div>
-
-
-<% elsif current_user.is_artist? %>
-<h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Artiste</h1>
-<p>Bienvenue sur votre tableau de board d'artiste</p>
-<div id=dashboard-artist>
-  <%= render 'artist'  %>
-  <%= render '/availabilities/show'  %>
-  <%= render '/availabilities/calendar'  %>
-</div>
-
-
-<% else %>
-<h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Utilisateur</h1>
-<p>Bienvenue sur votre tableau de board d'utilisateur</p>
-<div id="dashboard-user">
-  <%= render 'user' %>
-</div>
-
-
-<% end %>
