@@ -1,8 +1,8 @@
 var params = "<%= params[:search] %>";
 if(params.length == 0){
   document.getElementById("show-result").remove();
-  document.getElementById('dashboard-admin').insertAdjacentHTML('beforeend', "<div id='test1'><p> Aucun résultat </p></div>");
+  document.getElementById('dashboard-admin').insertAdjacentHTML('beforeend', "<div id='show-result'><p> Aucun résultat </p></div>");
   } else {
   document.getElementById("show-result").remove();
-  document.getElementById('dashboard-admin').insertAdjacentHTML('beforeend', '<div id="test1"><%= j render "results", users: @search_results_posts %></div>');
+  document.getElementById('dashboard-admin').insertAdjacentHTML('beforeend', '<div id="show-result"><%= j render "results", users: @search_results_posts %></div>');
 };

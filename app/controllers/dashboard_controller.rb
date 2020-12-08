@@ -22,11 +22,20 @@ class DashboardController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:dashboard_id])
+    @user.is_artist = true
+    @user.save
+    
+  end
+
   private
 
   def set_user
     @user = current_user
     authorize @user
   end
+
+
 
 end
