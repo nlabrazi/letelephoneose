@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_115547) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status"
+    t.string "status", default: "en attente", null: false
     t.index ["availability_id"], name: "index_orders_on_availability_id"
     t.index ["service_id"], name: "index_orders_on_service_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
