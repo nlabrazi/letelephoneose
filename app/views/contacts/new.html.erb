@@ -4,14 +4,13 @@
     <div class="col-md-6 offset-md-3">
       <h1 class="p-5">Formulaire de contact</h1>
 
-      <%= simple_form_for @contact, class: "pinkform" do |f| %>
+      <%= simple_form_for :contact, url: root_path, class: "pinkform" do |f| %>
       
       <div class="form-inputs ">
-        <%= f.label :target, "Numéro de téléphone *" %><br />
-        <%= f.text_field :target, autofocus: true, placeholder: "Numéro de contact", class: "form-control pinkform my-2" %>
-
-        <%= f.label :description, "Notes pour l'artiste *" %><br />
-        <%= f.text_field :description, autofocus: true, placeholder: "Notes supplémentaires pour l'artiste", class: "form-control pinkform my-2" %>
+        <%= f.input :name, label: 'Nom' %>
+        <%= f.input :email, label: 'Email' %>
+        <%= f.input :message, label: 'Votre message' %>
+        
         <%= f.button :submit, class: "btn btn-lg btn-pinkwhite btn-block btn-success my-2" %>
       </div>
       
