@@ -7,7 +7,6 @@ class DashboardController < ApplicationController
     @orders = current_user.orders.paginate(page: params[:page])
     @artist = current_user.artist
     @availability = Availability.new
-
     @a = Availability.where(artist_id: @artist)
     @b = Order.where(availability_id: @a)
 
