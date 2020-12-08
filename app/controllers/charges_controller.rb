@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-    before_action :set_user, only: [:new]
+    before_action :set_user, only: [:new, :create]
 
     def new
     end
