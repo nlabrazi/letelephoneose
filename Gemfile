@@ -43,7 +43,10 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'pg_search'
 gem 'will_paginate'
-#REMOVE IF I DID'NT (|Boris)
-gem 'mini_racer'
 gem 'devise-i18n'
 gem 'simple_calendar'
+gem 'stripe'
+
+
+#REMOVE IF I DID'NT (|Boris)
+  gem 'mini_racer'
