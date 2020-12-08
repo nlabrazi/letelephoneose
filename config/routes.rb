@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get '/mentions', to: 'pages#mentions'
+  
+  resources :contacts, only: [:new, :create]
 
   resources :artists do
     resources :availabilities do
