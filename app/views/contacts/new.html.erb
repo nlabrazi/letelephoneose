@@ -7,9 +7,9 @@
       <%= simple_form_for :contact, url: root_path, class: "pinkform" do |f| %>
       
       <div class="form-inputs ">
-        <%= f.input :name, label: 'Nom' %>
-        <%= f.input :email, label: 'Email' %>
-        <%= f.input :message, label: 'Votre message' %>
+        <%= f.input :name, label: 'Nom', hint: false, error: 'Votre nom est obligatoire.' %>
+        <%= f.input :email, label: 'Email', hint: false, error: 'Votre email est obligatoire.' %>
+        <%= f.input :message, as: :text, hint: false, label: 'Votre message' %>
         
         <%= f.button :submit, class: "btn btn-lg btn-pinkwhite btn-block btn-success my-2" %>
       </div>
