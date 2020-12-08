@@ -8,6 +8,10 @@ class DashboardController < ApplicationController
     @artist = current_user.artist
     @availability = Availability.new
 
+
+    @a = Availability.where(artist_id: @artist)
+    @b = Order.where(availability_id: @a)
+
     if params[:search]
       @search_results_posts = User.search_by_name(params[:search])
       respond_to do |format|
