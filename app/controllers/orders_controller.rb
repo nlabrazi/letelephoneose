@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
     @availability.is_booked = true
 
-    @order.status = "en attente"
+    @order.status = "pending"
 
     if @order.save && @availability.save
       flash.notice = "Votre réservation a bien été créée"
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   def validate
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
-    @order.update(status: "confirmé")
+    @order.update(status: "confirmed")
     if @order.save
       redirect_to dashboard_index_path, notice: "Commande acceptée"
     else
@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
   def refused
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
-    @order.status = "refusé"
+    @order.status = "rejected"
     if @order.save
       redirect_to dashboard_index_path, notice: "Commande refusée"
     else
