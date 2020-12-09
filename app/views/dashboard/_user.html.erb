@@ -9,7 +9,6 @@
       <th scope="col">Date de début</th>
       <th scope="col">Date de fin</th>
       <th scope="col">Confirmé ?</th>
-      <th scope="col">Payé ?</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +22,6 @@
       <td><%= order.availability.start_date %></td>
       <td><%= order.availability.end_date %></td>
       <td> <%= order.status %></td>
-      <td> <%= check_box_tag 'is_artist', 'Payé ?' %></td>
     </tr>
     <% end %>
   </tbody>

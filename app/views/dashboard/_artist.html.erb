@@ -8,8 +8,8 @@
       <th scope="col">Détails</th>
       <th scope="col">Date de début</th>
       <th scope="col">Date de fin</th>
-      <th scope="col">Confirmé ?</th>
-      <th scope="col">Payé ?</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Confirmer?</th>
     </tr>
   </thead>
   <tbody>
@@ -22,11 +22,12 @@
       <td><%= order.description %></td>
       <td><%= order.availability.start_date %></td>
       <td><%= order.availability.end_date %></td>
-      <td id="status-id"><%= order.status %>
-        <%= link_to "Oui?", artist_availability_order_validate_path(order.availability.artist_id, order.availability_id, order.id), id: "status-v-btn", class: "btn btn-success btn-block", method: :put, data: { turbolinks: false }, remote: true %>
-        <%= link_to "Non?", artist_availability_order_refused_path(order.availability.artist_id, order.availability_id, order.id), id: "status-r-btn", class: "btn btn-danger btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+      <td id="status-id"><%= order.status %></td>
+      <td> <% if order.status == "en attente" %>
+        <%= link_to "Valider", artist_availability_order_validate_path(order.availability.artist_id, order.availability_id, order.id), id: "status-v-btn", class: "btn btn-success btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+        <%= link_to "Refuser", artist_availability_order_refused_path(order.availability.artist_id, order.availability_id, order.id), id: "status-r-btn", class: "btn btn-danger btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+        <% end %>
       </td>
-      <td><%= check_box_tag 'is_artist', 'Payé ?' %></td>
     </tr>
     <% end %>
   </tbody>

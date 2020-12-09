@@ -44,9 +44,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
     @order.update(status: "confirmé")
-    respond_to do |format|
-      format.html { redirect_to dashboard_index_path, notice: "Commande acceptée" }
-      format.js {}
+    if @order.save
+      redirect_to dashboard_index_path, notice: "Commande acceptée"
+    else
+      flash.alert = "Une erreur est survenue #{@order.errors.messages}"
+      redirect_to dashboard_index_path
     end
     authorize @order
   end
@@ -55,10 +57,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
     @order.status = "refusé"
-    @order.save
-    respond_to do |format|
-      format.html { redirect_to dashboard_index_path, notice: "Commande refusée" }
-      format.js {}
+    if @order.save
+      redirect_to dashboard_index_path, notice: "Commande refusée"
+    else
+      flash.alert = "Une erreur est survenue #{@order.errors.messages}"
+      redirect_to dashboard_index_path
     end
     authorize @order
   end
