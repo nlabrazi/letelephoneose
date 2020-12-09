@@ -1,6 +1,10 @@
 .navbar-mainbar {
   justify-content: space-between;
-  background: white;
+  background: #e83e8c;
+  position: sticky;
+  top: 0;
+  left:0;
+  z-index:5;
 }
 
 .navbar-mainbar .navbar-collapse {
@@ -9,4 +13,11 @@
 
 .navbar-mainbar .navbar-brand img {
   width: 40px;
+}
+
+.navbar-a {
+  color: #FFF;
+  &:hover{
+      color: #000;
+    }
 }
