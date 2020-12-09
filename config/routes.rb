@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :artists do
     resources :availabilities do
-      resources :orders
+      resources :orders do
+        put "/validate", to: "orders#validate"
+        put "/refused", to: "orders#refused"
+      end
     end
   end
   resources :dashboard, only: [:index]

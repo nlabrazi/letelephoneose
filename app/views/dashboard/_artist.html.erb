@@ -1,0 +1,35 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Commandé par</th>
+      <th scope="col">Service</th>
+      <th scope="col">Pour qui ?</th>
+      <th scope="col">Détails</th>
+      <th scope="col">Date de début</th>
+      <th scope="col">Date de fin</th>
+      <th scope="col">Confirmé ?</th>
+      <th scope="col">Payé ?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.user.first_name %></td>
+      <td><%= order.service.name %></td>
+      <td><%= order.target %></td>
+      <td><%= order.description %></td>
+      <td><%= order.availability.start_date %></td>
+      <td><%= order.availability.end_date %></td>
+      <td id="status-id"><%= order.status %>
+        <%= link_to "Oui?", artist_availability_order_validate_path(order.availability.artist_id, order.availability_id, order.id), id: "status-v-btn", class: "btn btn-success btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+        <%= link_to "Non?", artist_availability_order_refused_path(order.availability.artist_id, order.availability_id, order.id), id: "status-r-btn", class: "btn btn-danger btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+      </td>
+      <td><%= check_box_tag 'is_artist', 'Payé ?' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @orders %>
