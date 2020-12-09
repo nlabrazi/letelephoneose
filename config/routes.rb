@@ -5,14 +5,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/mentions', to: 'pages#mentions'
 
-  resources :artists do
-    resources :availabilities do
-      resources :orders do
-        put "/validate", to: "orders#validate"
-        put "/refused", to: "orders#refused"
-      end
-    end
-  end
-  resources :dashboard, only: [:index]
+  resources :artists
+  resources :services
 
+  resources :availabilities do
+    resources :orders
+  end
+
+  resources :dashboard, only: [:index]
 end

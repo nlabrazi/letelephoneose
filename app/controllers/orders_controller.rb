@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @user = current_user
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(session[:artist_id])
     @availability = Availability.find(params[:availability_id])
     @services = Service.all.map{|s| s.name}
     @services_radio = Service.all.map{|s| [s.name, s.name]}
