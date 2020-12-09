@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :services
 
   resources :availabilities do
-    resources :orders
+    resources :orders do
+      put "/validate", to: "orders#validate"
+      put "/refused", to: "orders#refused"
+    end
   end
   resources :dashboard, only: [:index] do
     put "/update", to: "dashboard#update"
