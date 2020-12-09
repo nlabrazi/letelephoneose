@@ -1,24 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-mainbar">
-
-  <%= link_to root_path, class: "navbar-brand" do %>
-  	<%= image_tag "https://res.cloudinary.com/borismd/image/upload/v1607416795/Assets/Logo_c551cu.png" %>
-  <% end %>
-  
-  <h1>Le Téléphone Ose</h1>
- 	<%= link_to "Nos artistes", artists_path, class: "nav-link" %>
- 	<%= link_to "Nous contater", "#", class: "nav-link" %>
- 	<%= link_to "FAQ", "#", class: "nav-link" %>
-
   <%# if current_user %>
-  	<%#= link_to "Dashboard", availability_path(current_user.id), class: "nav-link" %>
+  <%#= link_to "Dashboard Artist", availability_path(current_user.id), class: "nav-link" %>
   <%# end %>
 
+  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/3835/3835462.svg" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
+  
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
