@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :artists do
     resources :availabilities do
       resources :orders do
+        resources :charges
         put "/validate", to: "orders#validate"
         put "/refused", to: "orders#refused"
       end
@@ -15,11 +16,6 @@ Rails.application.routes.draw do
   end
   resources :dashboard, only: [:index]
 
-  resources :charges
-  scope '/checkout' do
-    post 'create', to: 'checkout#create', as: 'checkout_create'
-    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
-    get 'success', to: 'checkout#success', as: 'checkout_success'
-  end
+  
 end
 
