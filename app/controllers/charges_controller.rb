@@ -2,6 +2,7 @@ class ChargesController < ApplicationController
     before_action :set_user, only: [:new, :create]
 
     def new
+      @availability = Availability.find(params[:availability])
     end
     
     def create
@@ -19,7 +20,7 @@ class ChargesController < ApplicationController
           ],
           success_url: dashboard_index_url + '?session_id={CHECKOUT_SESSION_ID}',
           cancel_url: root_url
-        )
+        ) 
         respond_to do |format|
           format.js # renders create.js.erb
         end
@@ -28,6 +29,21 @@ class ChargesController < ApplicationController
     def set_user
         @user = current_user
         authorize @user
+    end
+    def create_order(availability)
+      order = Order.new
+      order.user_id = current_user.id
+      order.availability_id
+      order.service_id = 1
+      order.description = "test du paiement"
+      if order.save
+        availability.status = "paid"
+        availability.is_booked = true 
+        availability.save
+      else
+        flash.notice = "un probleme est survenu lors du paiment"
+        redirect_to root_path
+      end
     end
 end
 

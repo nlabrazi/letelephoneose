@@ -1,17 +1,2 @@
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="A month's subscription" data-amount="500" data-locale="auto"></script>
-<% end %>
-
 <script src="https://js.stripe.com/v3/"></script>
-<%= button_to "Passer commande (NEXT GEN)", charges_path(total: 10), class: "btn btn-primary my-3", remote: true %>
+<%= button_to "Passer commande (NEXT GEN)", artist_availability_order_charges_path(total: 10, availability: @availability), class: "btn btn-primary my-3", remote: true %>
