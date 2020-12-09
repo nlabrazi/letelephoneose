@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 
     def new
       @availability = Availability.find(params[:availability])
+      session[:order_id] = params[:order_id]
     end
     
     def create
