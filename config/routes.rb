@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :availabilities do
     resources :orders
   end
-
-  resources :dashboard, only: [:index]
-end
+  resources :dashboard, only: [:index] do
+    put "/update", to: "dashboard#update"
+  end

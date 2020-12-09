@@ -7,9 +7,13 @@ class DashboardController < ApplicationController
     @orders = current_user.orders.paginate(page: params[:page])
     @artist = current_user.artist
     @availability = Availability.new
+    @find_availabilities = Availability.where(artist_id: @artist)
+    @find_orders = Order.where(availability_id: @find_availabilities)
 
     if params[:search]
-      @search_results_posts = User.search_by_name(params[:search])
+
+      @users_all = User.all
+      @users = User.where(last_name: params[:search])
       respond_to do |format|
         format.js { render partial: 'search-results'}
       end
@@ -18,11 +22,20 @@ class DashboardController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:dashboard_id])
+    @user.is_artist = true
+    @user.save
+    
+  end
+
   private
 
   def set_user
     @user = current_user
     authorize @user
   end
+
+
 
 end
