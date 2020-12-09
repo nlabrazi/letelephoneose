@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
               quantity: 1
             },
           ],
-          success_url: root_url + '?session_id={CHECKOUT_SESSION_ID}',
+          success_url: dashboard_index_url + '?session_id={CHECKOUT_SESSION_ID}',
           cancel_url: root_url
         )
         respond_to do |format|
