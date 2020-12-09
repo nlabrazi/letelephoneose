@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 
     def new
       @availability = Availability.find(params[:availability])
+      @order = Order.find(params[:order_id])
       session[:order_id] = params[:order_id]
     end
     
@@ -31,28 +32,4 @@ class ChargesController < ApplicationController
         @user = current_user
         authorize @user
     end
-    def create_order(availability)
-      order = Order.new
-      order.user_id = current_user.id
-      order.availability_id
-      order.service_id = 1
-      order.description = "test du paiement"
-      if order.save
-        availability.status = "paid"
-        availability.is_booked = true 
-        availability.save
-      else
-        flash.notice = "un probleme est survenu lors du paiment"
-        redirect_to root_path
-      end
-    end
 end
-
-
-### snippet pour gerer le message de succes
-###<div class="container text-center my-5">
-###  <h1>Succès</h1>
-###  <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
-###  <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
-###</div>
-

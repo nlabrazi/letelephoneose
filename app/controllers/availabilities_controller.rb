@@ -21,7 +21,7 @@ class AvailabilitiesController < ApplicationController
     @availability.artist_id = @artist.id
     if @availability.slot
       flash.notice = "Votre disponibilité a bien été ajoutée"
-      redirect_to charge_path(@availability)
+      redirect_to dashboard_index_path
     else
       flash.alert = "Une erreur est survenue #{@availability.errors.messages}"
       redirect_to dashboard_index_path
