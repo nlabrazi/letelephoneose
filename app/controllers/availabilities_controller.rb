@@ -1,6 +1,16 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_artist, only: [:show, :create, :destroy]
 
+  def index
+    @artists = policy_scope(Availability)
+    @user = current_user
+    @artist = Artist.find(params[:artist_id])
+    @availabilities = @artist.availabilities
+    if !@user.nil?
+      authorize @user
+    end
+  end
+
   def show
     @availability = Availability.new
   end
@@ -11,28 +21,27 @@ class AvailabilitiesController < ApplicationController
     @availability.artist_id = @artist.id
     if @availability.slot
       flash.notice = "Votre disponibilité a bien été ajoutée"
-      redirect_to availability_path(current_user)
+      redirect_to dashboard_index_path
     else
       flash.alert = "Une erreur est survenue #{@availability.errors.messages}"
-      render :show
+      redirect_to dashboard_index_path
     end
   end
 
   def destroy
-
     @availability = Availability.find(params[:id])
     if @availability.destroy
       flash.notice = "Votre disponibilité a bien été SUPPRIME"
-      redirect_to availability_path(current_user)
+      redirect_to dashboard_index_path
     else
       flash.alert = "Une erreur est survenue #{@availability.errors.messages}"
-      render :show
+      redirect_to dashboard_index_path
     end
   end
 
   def set_artist
     @artist = Artist.find_by(user_id: current_user.id)
-    authorize @artist #pour le mettre un peu partout car define plus haut 😎
+    authorize @artist
   end
 
   private

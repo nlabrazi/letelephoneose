@@ -1,0 +1,28 @@
+<% if current_user.is_admin? %>
+<h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Administrateur</h1>
+<p>Bienvenue sur votre tableau de board administrateur</p>
+<div id="dashboard-admin">
+  <%= render 'admin' %>
+  <%= render 'search-results' %>
+</div>
+
+
+<% elsif current_user.is_artist? %>
+<h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Artiste</h1>
+<p>Bienvenue sur votre tableau de board d'artiste</p>
+<div id=dashboard-artist>
+  <%= render 'artist'  %>
+  <%= render '/availabilities/show'  %>
+  <%= render '/availabilities/calendar'  %>
+</div>
+
+
+<% else %>
+<h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Utilisateur</h1>
+<p>Bienvenue sur votre tableau de board d'utilisateur</p>
+<div id="dashboard-user">
+  <%= render 'user' %>
+</div>
+
+
+<% end %>
