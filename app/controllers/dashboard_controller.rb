@@ -44,7 +44,7 @@ class DashboardController < ApplicationController
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
       if @payment_intent.status == 'succeeded' && session[:order_id]
         order = Order.find(session[:order_id])
-        order.update(status: 'paid')
+        order.update(status: 'pendingValidate')
         session[:order_id] = nil
       end
     end

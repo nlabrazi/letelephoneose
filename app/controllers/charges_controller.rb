@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
     before_action :set_user, only: [:new, :create]
 
     def new
-      @availability = Availability.find(params[:availability])
+      @availability = Availability.find(params[:availability_id])
       @order = Order.find(params[:order_id])
       session[:order_id] = params[:order_id]
     end

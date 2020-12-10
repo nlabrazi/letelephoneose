@@ -21,7 +21,13 @@
       <td><%= order.description %></td>
       <td><%= order.availability.start_date %></td>
       <td><%= order.availability.end_date %></td>
-      <td> <%= order.status %></td>
+      <% if order.status == "pendingValidate" %>
+        <td> (Payée) - En attente de confirmation de l'artiste</td>
+      <% elsif order.status == "confirmed" %>
+        <td> Payée et confirmée </td>
+      <% else %>
+        <td> <%= link_to "Payer ma commande",new_availability_order_charge_path(order.availability.id, order.id) %> </td> 
+      <% end %> 
     </tr>
     <% end %>
   </tbody>
