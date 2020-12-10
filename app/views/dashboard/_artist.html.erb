@@ -24,8 +24,8 @@
       <td><%= order.availability.end_date %></td>
       <td id="status-id"><%= order.status %></td>
       <td> <% if order.status == "pendingValidate" %>
-        <%= link_to "Valider", availability_order_validate_path(order.availability.artist_id, order.availability_id, order.id), id: "status-v-btn", class: "btn btn-success btn-block", method: :put, data: { turbolinks: false }, remote: true %>
-        <%= link_to "Refuser", availability_order_refused_path(order.availability.artist_id, order.availability_id, order.id), id: "status-r-btn", class: "btn btn-danger btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+        <%= link_to "Valider", availability_order_validate_path(order.availability_id, order.id, order.availability.artist_id), id: "status-v-btn", class: "btn btn-success btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+        <%= link_to "Refuser", availability_order_refused_path(order.availability_id, order.id, order.availability.artist_id), id: "status-r-btn", class: "btn btn-danger btn-block", method: :put, data: { turbolinks: false }, remote: true %>
         <% end %>
       </td>
     </tr>
