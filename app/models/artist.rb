@@ -5,6 +5,12 @@ class Artist < ApplicationRecord
   has_one_attached :artist_pp
   validates :user_id, uniqueness: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+  against: :name, using: {
+    tsearch: { prefix: true }
+  }
+
   require "open-uri"
 
   def self.artist_creation(user)
