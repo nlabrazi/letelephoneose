@@ -47,3 +47,5 @@ gem 'will_paginate'
 gem 'mini_racer'
 gem 'devise-i18n'
 gem 'simple_calendar'
+
+gem "mail_form", "~> 1.8"
