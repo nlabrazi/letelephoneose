@@ -1,28 +1,26 @@
 <div class="container">
-	<div class="row">
-		<div class="col">
-			<h1>Editer mon profil d'artiste</h1>
-		</div>
-	</div>
-</div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Modification du profil de <%= @artist.name %></h1>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 offset-md-3">
-			<%= simple_form_for @artist, class: "pinkform" do |f| %>
-  			<%= f.input :name, class: "form-control pinkform my-2"%>
-  			<%= f.input :description, class: "form-control pinkform my-2"%>
-  			<%= f.button :submit, class: "btn btn-lg btn-whitepink btn-block btn-success my-2" %>
-			<% end %>
-		</div>
-	</div>
-</div>
+      <div class="content">
+        <%= simple_form_for @artist, class: "pinkform" do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name, class: "form-control pinkform my-2" %>
+          <%= f.input :description, class: "form-control pinkform my-2" %>
+          <%= f.file_field :artist_pp %>
+        </div>
+        <br><br>
+        <div class="form-actions">
+          <%= f.button :submit, "Modifier", class:"btn btn-lg btn-whitepink btn-block btn-success my-2" %>
+        </div>
+        <% end %>
+        <br />
+        <%= link_to 'Afficher', @artist, class: "btn btn-pinkwhite my-2" %> |
+        <%= link_to 'Retour', artists_path, class: "btn btn-pinkwhite my-2" %>
+      </div>
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 offset-md-3">
-			<%= link_to 'Show', @artist, class: "btn btn-pinkwhite my-2" %> |
-			<%= link_to 'Back', artists_path, class: "btn btn-pinkwhite my-2" %>
-		</div>
-	</div>
+    </div>
+  </div>
 </div>
