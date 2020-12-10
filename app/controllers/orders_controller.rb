@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @user = current_user
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(session[:artist_id])
     @availability = Availability.find(params[:availability_id])
     @services = Service.all.map{|s| s.name}
     @services_radio = Service.all.map{|s| [s.name, s.name]}
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
     @availability.is_booked = true
 
-    @order.status = "en attente"
+    @order.status = "pending"
 
     if @order.save && @availability.save
       flash.notice = "Votre réservation a bien été créée"
@@ -43,10 +43,12 @@ class OrdersController < ApplicationController
   def validate
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
-    @order.update(status: "confirmé")
-    respond_to do |format|
-      format.html { redirect_to dashboard_index_path, notice: "Commande acceptée" }
-      format.js {}
+    @order.update(status: "confirmed")
+    if @order.save
+      redirect_to dashboard_index_path, notice: "Commande acceptée"
+    else
+      flash.alert = "Une erreur est survenue #{@order.errors.messages}"
+      redirect_to dashboard_index_path
     end
     authorize @order
   end
@@ -54,11 +56,12 @@ class OrdersController < ApplicationController
   def refused
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
-    @order.status = "refusé"
-    @order.save
-    respond_to do |format|
-      format.html { redirect_to dashboard_index_path, notice: "Commande refusée" }
-      format.js {}
+    @order.status = "rejected"
+    if @order.save
+      redirect_to dashboard_index_path, notice: "Commande refusée"
+    else
+      flash.alert = "Une erreur est survenue #{@order.errors.messages}"
+      redirect_to dashboard_index_path
     end
     authorize @order
   end
