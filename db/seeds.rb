@@ -180,12 +180,10 @@ puts ""
 
 p "Creating availabilities..."
 25.times do
-    av = Availability.new
-    av.artist_id = Artist.all.sample.id
-    av.start_date = Faker::Time.between(from: 2.days.ago, to: Time.now)
-    av.end_date = Faker::Time.forward(days: 5)
-    av.is_booked = false
-    av.save
+		start_date = Faker::Time.between(from: Time.now, Time.now.forward(days: 2))
+		end_date = start_date + 15 * 60
+    Availability.create! artist_id: Artist.all.sample.id, start_date: start_date, end_date = end_date, is_booked = false
+
 end
 p "Availabilities creation DONE, result below.... "
 puts ""
