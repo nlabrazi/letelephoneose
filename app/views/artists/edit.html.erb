@@ -1,10 +1,28 @@
-<h1>Editing Artist</h1>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1>Editer mon profil d'artiste</h1>
+		</div>
+	</div>
+</div>
 
-<%= simple_form_for @artist do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<%= simple_form_for @artist, class: "pinkform" do |f| %>
+  			<%= f.input :name, class: "form-control pinkform my-2"%>
+  			<%= f.input :description, class: "form-control pinkform my-2"%>
+  			<%= f.button :submit, class: "btn btn-lg btn-whitepink btn-block btn-success my-2" %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<%= link_to 'Show', @artist, class: "btn btn-pinkwhite my-2" %> |
+			<%= link_to 'Back', artists_path, class: "btn btn-pinkwhite my-2" %>
+		</div>
+	</div>
+</div>
