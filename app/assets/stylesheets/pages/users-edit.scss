@@ -1,17 +1,5 @@
-#artists-edit {
-	h1 {
-		font-size: 48px;
-	}
-	
-	#description {
-		text-align: justify;
-	}
-	
-	.row {
-		margin: 5% 0;
-	}
-
-	.pinkform{
+#users-edit {
+		.pinkform{
 		display: block;
 		width: 100%;
 		height: calc(1.5em + 0.75rem + 5px);
@@ -34,4 +22,3 @@
 		box-shadow: 0px 0px 5px 0px rgba(232,62,140,1);
 	}
 }
-

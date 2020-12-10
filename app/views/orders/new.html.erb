@@ -1,17 +1,27 @@
+<div class="jumboton">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+			<h1 class="p-5">Quelques informations supplémentaires pour votre commande</h1>
+		</div>
+	</div>
+</div>
+
 <div class="container">
 
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h1 class="p-5">Creation Order</h1>
+    <div class="col-md-8 offset-md-2">
+      
 
       <%= simple_form_for ([@availability, @order]), class: "pinkform" do |f| %>
       <div class="form-inputs ">
         <%= f.label :target, "Numéro de téléphone *" %><br />
         <%= f.text_field :target, autofocus: true, placeholder: "Numéro de contact", class: "form-control pinkform my-2" %>
         <%= f.label :description, "Notes pour l'artiste *" %><br />
-        <%= f.input :description, autofocus: true, label: false, as: :text, input_html: { :rows => 7 , :style => 'width: 100%'}, placeholder: "Notes supplémentaires pour l'artiste", class: "form-control pinkform my-2" %>
+        <%= f.input :description, autofocus: true, label: false, as: :text, input_html: { :rows => 7 , :style => 'width: 100%'}, placeholder: "Laissez un petit mot pour l'artiste : quelle chanson vous souhaitez, si c'est pour vous ou pour offrir...", class: "form-control pinkform my-2" %>
         <%= f.input :service, as: :radio_buttons, required:true, collection: @services_radio %>
-        <%= f.button :submit, "Accéder au paiement", class: "btn btn-lg btn-pinkwhite btn-block btn-success my-2" %>
+        <div class="text-center">
+        	<%= f.button :submit, "Accéder au paiement", class: "btn btn-lg btn-pinkwhite my-2" %>
+        </div>
       </div>
       <% end %>
 

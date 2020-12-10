@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 
     def new
       @availability = Availability.find(params[:availability_id])
+      @artist = Artist.find(@availability.artist_id)
       @order = Order.find(params[:order_id])
       session[:order_id] = params[:order_id]
     end
