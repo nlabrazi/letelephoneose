@@ -9,13 +9,27 @@
   
 	}
 	
-	.img {
-		width: 200px;
-		height: 200px;
+
+	.img-faq {
+		width: 150px;
+	}
+	
+	.img-faq2 {
+		height: 150px;
+	}
+	
+	.row-img {
+		display: flex;
+	  align-items:  center;
+	  justify-content: center;
 	}
 
 	h1 {
 		text-align: center; 
+	}
+	
+	.container {
+		margin: 2%;
 	}
 	
 }

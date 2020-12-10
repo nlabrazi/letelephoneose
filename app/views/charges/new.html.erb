@@ -1,2 +1,36 @@
 <script src="https://js.stripe.com/v3/"></script>
-<%= button_to "Passer commande (NEXT GEN)", availability_order_charges_path(total: @order.service.price, availability: @availability), class: "btn btn-primary my-3", remote: true %>
+
+<div class="w-75 mx-auto">
+    <div class="card my-5">
+        <div class="card-body">
+            <div class="card-title">
+                <div class="w-100 d-flex justify-content-center h1">
+                    Procéder au paiement
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-center flex-wrap flex-column">
+                <div class="h1 custom-font my-2 mt-4 text-center">
+                    Artiste :
+                </div>
+                <div class="text-center" style="font-size: 1.2em;">
+                    <%= @artist.name %>
+                </div>
+                <div class="h1 custom-font my-2 mt-4 text-center">
+                    prix :
+                </div>
+                <div class="text-center" style="font-size: 1.2em;">
+                    15€
+                </div>
+                <div class="h1 custom-font my-2 mt-4 text-center">
+                    Date :
+                </div>
+                <div class="text-center" style="font-size: 1.2em;">
+                    <%= @availability.start_date.strftime("Le %d/%m à %Hh%M") %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 d-flex justify-content-center my-5">
+        <%= button_to "Payer", availability_order_charges_path(total: @order.service.price, availability: @availability), class: "btn-pinkwhite h2 px-3 py-1", remote: true %>
+    </div>
+</div>
