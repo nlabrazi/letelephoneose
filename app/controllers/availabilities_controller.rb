@@ -4,9 +4,11 @@ class AvailabilitiesController < ApplicationController
   def index
     @artists = policy_scope(Availability)
     @user = current_user
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(session[:artist_id])
     @availabilities = @artist.availabilities
-    authorize @user
+    if !@user.nil?
+      authorize @user
+    end
   end
 
   def show
