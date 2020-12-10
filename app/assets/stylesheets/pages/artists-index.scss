@@ -41,4 +41,15 @@
     height: 50px;
     border-radius: 15px;
   }
+  @media screen and (min-width: 200px) and (max-width: 1025px) {
+    .card-product{
+      height: 50vh;
+    }
+  }
+  @media screen and (min-width: 200px) and (max-width: 445px) {
+    .card-product{
+      height: 70vh;
+    }
+  }
 }
+
