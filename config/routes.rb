@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :availabilities do
     resources :orders do
+      resources :charges
       put "/validate", to: "orders#validate"
       put "/refused", to: "orders#refused"
     end

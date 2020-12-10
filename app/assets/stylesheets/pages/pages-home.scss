@@ -25,13 +25,12 @@
 
 	.jumbotron{
 		background-color: #E83E8C;
-		position: relative;
 		background-image: url('https://res.cloudinary.com/borismd/image/upload/v1607529112/Assets/banner_kc8hcf.png');
 		background-size: cover;
 		background-repeat: repeat-x; 
 		background-position: bottom center;
 		background-blend-mode: overlay;
-		padding: 0;
+		padding: 10rem;
 		.container{
 			padding: 4rem 2rem;
 		}
