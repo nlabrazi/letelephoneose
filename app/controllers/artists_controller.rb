@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
   before_action :set_admin, only: [:new]
-
+  before_action :set_session, only: [:index, :show]
 
   def index
     @artists = policy_scope(Artist)
@@ -53,10 +53,16 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
     authorize @artist
   end
+
   def set_admin
     @admin = User.find(current_user.id)
     if User.find(current_user.id).is_admin
       authorize @admin
     end
+  end
+
+  def set_session
+    session[:service_id] = params.require(:service_id) if params[:service_id]
+    redirect_to availabilities_path if session[:artist_id] && session[:service_id]
   end
 end

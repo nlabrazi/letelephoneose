@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-12">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Retrouvez tous nos artistes</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <% @services.each do |service| %>
+    <%= render 'card', service: service%>
+  <% end %>
+</div>

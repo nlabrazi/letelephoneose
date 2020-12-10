@@ -39,13 +39,18 @@ gem 'devise'
 gem 'pundit'
 gem 'faker'
 gem 'table_print'
+gem 'letter_opener'
 gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'pg_search'
 gem 'will_paginate'
-#REMOVE IF I DID'NT (|Boris)
-gem 'mini_racer'
 gem 'devise-i18n'
 gem 'simple_calendar'
 
 gem "mail_form", "~> 1.8"
+gem 'stripe'
+
+
+#REMOVE IF I DID'NT (|Boris)
+  gem 'mini_racer'
+>>>>>>> Usermailer
