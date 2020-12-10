@@ -1,10 +1,26 @@
-<h1>Editing Artist</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Modification du profil de <%= @artist.name %></h1>
 
-<%= simple_form_for @artist do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+      <div class="content">
+        <%= simple_form_for @artist do |f| %>
+        <div class="form-inputs">
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.file_field :artist_pp %>
+        </div>
+        <br><br>
+        <div class="form-actions">
+          <%= f.button :submit, "Modifier", class:"btn btn-lg btn-primary btn-block btn-success" %>
+        </div>
+        <% end %>
+        <br>
+        <%= link_to 'Afficher', @artist %> |
+        <%= link_to 'Retour', artists_path %>
+      </div>
 
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+    </div>
+  </div>
+</div>
