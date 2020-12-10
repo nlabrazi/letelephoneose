@@ -15,7 +15,7 @@ class Order < ApplicationRecord
     if(self.status == 'confirmed')
       UserMailer.confirmation_order(self).deliver_now
     end
-    if(self.status == 'refused')
+    if(self.status == 'rejected')
       UserMailer.refuse_order(self).deliver_now
     end
   end
