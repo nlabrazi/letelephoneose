@@ -19,8 +19,8 @@
       <td><%= order.service.name %></td>
       <td><%= order.target %></td>
       <td><%= order.description %></td>
-      <td><%= order.availability.start_date %></td>
-      <td><%= order.availability.end_date %></td>
+      <td><%= order.availability.start_date.strftime('%d/%m/%y - %H:%M') %></td>
+      <td><%= order.availability.end_date.strftime('%d/%m/%y - %H:%M') %></td>
       <% if order.status == "pendingValidate" %>
         <td> (Payée) - En attente de confirmation de l'artiste</td>
       <% elsif order.status == "confirmed" %>
