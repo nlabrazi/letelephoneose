@@ -1,12 +1,10 @@
-<section class="jumbotron text-center">
-  <div class="container">
-    <span class="custom-font display-3"> Le Téléphone Ose </span>
-    <p class="lead text-white">"Le bonheur, c'est simple comme un coup de fil"
-      <br/>
-    Après le Téléphone Rose, le Téléphone pleure, celui de Gaston ou le groupe, voici le Téléphone Ose !</p>
+<section id="banner" class="text-center">
+  <div id="banner-container">
+    <h1 class="custom-font display-3 mb-5"> Le Téléphone Ose </h1>
+    <p class="lead text-white font-italic sloganHome">" Le bonheur, c'est simple comme un coup de fil "</p>
+    <p class="lead text-white sloganHome">Après le Téléphone Rose, le Téléphone pleure, celui de Gaston ou le groupe, voici : <span class="font-weight-bold">le Téléphone Ose !</span></p>
     <div>
-      <%= link_to "Découvrir les artistes", artists_path, class: "btn btn-whitepink my-2" %> 
-      <%= link_to "Découvrir les services", services_path, class: "btn btn-whitepink my-2" %>
+      <%= link_to "Comment ca marche ?", faq_path, class: "btn btn-pinkwhite mt-5" %>
     </div>
   </div>
 </section>
@@ -14,22 +12,24 @@
 
 <div class="container marketing">
 	<div class="row d-flex justify-content-center">
-		<div class="col-6">
-  		<h2>Votre chanson préférée chantée au téléphone</h2>
-  	</div>
+		<div class="col-8">
+      <h2>Votre chanson préférée chantée au téléphone</h2>
+    </div>
   </div>
   <div class="row d-flex justify-content-center">
   	<div class="col-8">
   		<p>Laissez-vous tenter par une pause musicale grâce à un artiste au téléphone : simple comme un coup de fil, il ou elle vous chantera une chanson de votre choix ou un titre surprise !</p>
   	</div>
   </div>
+  <div class="row d-flex justify-content-center">
+    <%= link_to "Découvrir les artistes", artists_path, class: "btn btn-pinkwhite my-2  p-3 m-2 font-weight-bold" %> 
+    <%= link_to "Découvrir les services", services_path, class: "btn btn-pinkwhite my-2 p-3 m-2 font-weight-bold" %>
+  </div>
 </div>
 
 
 <div class="container marketing">
-	<div class="row d-flex justify-content-center">
-			<%= link_to "Comment ca marche ?", faq_path, class: "btn btn-pinkwhite my-2" %>
-  </div>
+	
 </div>
 
 <div class="container marketing">
