@@ -25,11 +25,11 @@ class OrdersController < ApplicationController
 
     @availability.is_booked = true
 
-    @order.status = "pending"
+    @order.status = "pendingPaiement"
 
     if @order.save && @availability.save
       flash.notice = "Votre réservation a bien été créée"
-      redirect_to new_availability_order_charge_path(order_id: @order, availability: @availability)
+      redirect_to new_availability_order_charge_path(order_id: @order, availability_id: @availability)
     else
       flash.alert = "Une erreur est survenue #{@order.errors.messages}"
       redirect_to root_path
