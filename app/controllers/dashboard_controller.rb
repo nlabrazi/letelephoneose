@@ -10,12 +10,14 @@ class DashboardController < ApplicationController
     @find_availabilities = Availability.where(artist_id: @artist)
     @find_orders = Order.where(availability_id: @find_availabilities)
 
+    update_order
+
     if params[:search]
 
       @users_all = User.all
       @users = User.where(last_name: params[:search])
       respond_to do |format|
-        format.js { render partial: 'search-results'}
+        format.js { render partial: 'search-results' }
       end
     else
       @users = User.all.paginate(page: params[:page])
@@ -36,6 +38,15 @@ class DashboardController < ApplicationController
     authorize @user
   end
 
-
-
+  def update_order
+    if params[:session_id]
+      @session = Stripe::Checkout::Session.retrieve(params[:session_id])
+      @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+      if @payment_intent.status == 'succeeded' && session[:order_id]
+        order = Order.find(session[:order_id])
+        order.update(status: 'paid')
+        session[:order_id] = nil
+      end
+    end
+  end
 end
