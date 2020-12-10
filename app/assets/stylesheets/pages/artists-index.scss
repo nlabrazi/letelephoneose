@@ -4,7 +4,7 @@
 		font-size: 48px;
 		margin-top: 12px;
 	}
-	
+
   .card-product {
     overflow: hidden;
     height: 200px;
@@ -13,11 +13,18 @@
     display: flex;
     align-items: center;
     margin: 4% 0;
+    border-radius: 15px;
+    border: solid 3px #D2F4F4;
+  }
+  .card-product:hover {
+    transform: scale(1.03);
+    transition: ease 0.5s;
+    background-color: #D2F4F4;
   }
 
   .card-product img {
     height: 100%;
-    width: 120px;
+    width: 180px;
     object-fit: cover;
   }
 
@@ -25,4 +32,13 @@
     padding: 16px;
  	}
 
+  .filter-search {
+    justify-content: center;
+    display: grid;
+  }
+
+  .form-control-sm {
+    height: 50px;
+    border-radius: 15px;
+  }
 }

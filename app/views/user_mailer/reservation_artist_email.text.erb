@@ -1,0 +1,15 @@
+Salut <%= @user.first_name %>
+==========================================================
+
+Tu as une nouvelle commande :
+
+Destinataire : <%= @order.target %>
+
+Date de début : <%= @order.availability.start_date.strftime('%d/%m/%y: %H:%M') %>
+Date de fin : <%= @order.availability.end_date.strftime('%d/%m/%y: %H:%M') %>
+
+Client : <%= @order.user.email %>
+
+Pour accéder à ton espace client, connecte-toi via : <%= @url %>
+
+À très vite !

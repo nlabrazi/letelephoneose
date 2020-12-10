@@ -5,6 +5,17 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = policy_scope(Artist)
+    @artists = Artist.all
+    if params[:order] == "name"
+      @artists = @artists.order(name: :asc)
+    elsif params[:order] == "date"
+      @artists = @artists.order(created_at: :desc)
+    end
+    if params[:query].present?
+      @artists = @artists.search_by_name(params[:query])
+    else
+      @artists
+    end
   end
 
   def show

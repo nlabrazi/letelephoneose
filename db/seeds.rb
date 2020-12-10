@@ -36,7 +36,7 @@ puts ""
 
 
 p "Creating users..."
-15.times do
+10.times do
     u = User.new
     u.first_name = Faker::Name.first_name
     u.last_name = Faker::Name.last_name
@@ -194,7 +194,7 @@ puts ""
 
 
 p "Creating orders..."
-5.times do
+3.times do
     o = Order.new
     o.user_id = User.all.sample.id
     o.availability_id = Availability.all.sample.id
