@@ -19,10 +19,16 @@ class UserMailer < ApplicationMailer
   end
 
   def reservation_artist_email(order)
-    @user =  Order.last.availability.artist.user
+    @user =  order.availability.artist.user
     @order = order
-    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    @url  = dashboard_index_url
     mail(to: @user.email, subject: 'Nouvelle reservation !')
   end
 
+  def confirmation_order(order)
+    @user =  order.user
+    @order = order
+    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    mail(to: @user.email, subject: "T'as commande a ete confirme par l'artiste")
+  end
 end
