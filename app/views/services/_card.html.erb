@@ -11,3 +11,12 @@
     </div>
   </div>
 </div>
+<div class="col-lg-3 d-flex justify-content-center flex-row flex-wrap card-cutsom">
+  <div class="w-100 d-flex justify-content-center text-center">
+    <h3 class="custom-font"><%= service.name %></h3>
+  </div>
+  <p>service.description.truncate(130)</p>
+  <div class="w-100 py-2">
+    <%= link_to 'Réserver', artists_path(service_id: service.id), class: "btn btn-whitepink my-2" %>
+  </div>
+</div>
