@@ -9,28 +9,54 @@
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-center flex-wrap flex-column">
-                <div class="h1 custom-font my-2 mt-4 text-center">
+                <div class="h2 custom-font my-2 mt-4 text-center">
                     Artiste :
                 </div>
-                <div class="text-center" style="font-size: 1.2em;">
-                    <%= @artist.name %>
+                <div class="w-100 d-flex justify-content-center mb-2">
+                    <div class="rounded-circle overflow-hidden d-flex align-items-center justify-content-center" style="width: 8em; height: 8em;">
+                    <%= cl_image_tag @artist.artist_pp.key, id: "artist_photo", 'aria-haspopup': true, 'aria-expanded': false, style:"max-width: 100%; max-height: 100%;" %>
+                    </div>
                 </div>
-                <div class="h1 custom-font my-2 mt-4 text-center">
-                    prix :
+                <div class="w-100 d-flex justify-content-center">
+                    <div style="font-size: 1.2em;">
+                        <%= @artist.name%>
+                    </div>
+                </div>
+                <div class="text-center" style="font-size: 1.2em;">
+                </div>
+                <div class="h2 custom-font my-2 mt-4 text-center">
+                    Prix :
                 </div>
                 <div class="text-center" style="font-size: 1.2em;">
                     15€
                 </div>
-                <div class="h1 custom-font my-2 mt-4 text-center">
+                <div class="h2 custom-font my-2 mt-4 text-center">
                     Date :
                 </div>
                 <div class="text-center" style="font-size: 1.2em;">
                     <%= @availability.start_date.strftime("Le %d/%m à %Hh%M") %>
                 </div>
+                <div class="h2 custom-font my-2 mt-4 text-center">
+                    Au numéro de téléphone :
+                </div>
+                <div class="text-center" style="font-size: 1.2em;">
+                    <%= @order.target %>
+                </div>
+                <div class="h2 custom-font my-2 mt-4 text-center">
+                    Résumé de la commande :
+                </div>
+                <div class="text-center" style="font-size: 1.2em;">
+                    <%= @order.description %>
+                </div>
             </div>
         </div>
     </div>
     <div class="w-100 d-flex justify-content-center my-5">
-        <%= button_to "Payer", availability_order_charges_path(total: @order.service.price, availability: @availability), class: "btn-pinkwhite h2 px-3 py-1", remote: true %>
+        <%= button_to "Payer", availability_order_charges_path(total: @order.service.price, availability: @availability), class: "btn-pinkwhite px-3 py-1", style: "font-size: 1.4em;", remote: true %>
     </div>
 </div>
+
+
+<!--
+    resum title
+-->
