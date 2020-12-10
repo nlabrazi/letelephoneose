@@ -7,9 +7,9 @@
       <%= simple_form_for @contact, class: "pinkform" do |f| %>
 
       <div class="form-inputs ">
-        <%= f.input :name, label: 'Nom', input_html: { class: 'pinkform' } %>
-        <%= f.input :email, label: 'Email', input_html: { class: 'pinkform' } %>
-        <%= f.input :message, as: :text, label: 'Votre message', input_html: { class: 'pinkform' } %>
+        <%= f.input :name, label: 'Nom', input_html: {class: 'pinkform'} %>
+        <%= f.input :email, label: 'Email' %>
+        <%= f.input :message, as: :text, label: 'Votre message', input_html: {class: 'pinkform'} %>
         <div class="d-none">
         <%= f.input :nickname %>
         </div>
