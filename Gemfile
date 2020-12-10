@@ -46,6 +46,8 @@ gem 'pg_search'
 gem 'will_paginate'
 gem 'devise-i18n'
 gem 'simple_calendar'
+
+gem "mail_form", "~> 1.8"
 gem 'stripe'
 
 
