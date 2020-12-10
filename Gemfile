@@ -53,4 +53,3 @@ gem 'stripe'
 
 #REMOVE IF I DID'NT (|Boris)
   gem 'mini_racer'
->>>>>>> Usermailer
