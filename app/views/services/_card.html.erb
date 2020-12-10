@@ -1,13 +1,13 @@
-<div class="card-product">
-  <div class="card-product-infos">
-    <h3><%= service.name %></h3>
-    <p class="details" style="font-size:20px" ><%= service.description.truncate(130) %> </p>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-auto">
-          <%= link_to 'Réserver', artists_path(service_id: service.id), class: "btn btn-whitepink my-2" %>
-        </div>
-      </div>
-    </div>
+
+   <div class="row">
+    	<h3><%= service.name %></h3>
+	</div>
+  
+   <div class="row">
+    	<p class="details" style="font-size:20px" ><%= service.description.truncate(130) %> </p>
+   </div>
+   
+   <div class="row">
+      <%= link_to 'Réserver', artists_path(service_id: service.id), class: "btn btn-whitepink my-2" %>
   </div>
-</div>
+
