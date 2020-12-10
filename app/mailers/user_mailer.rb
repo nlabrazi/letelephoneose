@@ -31,4 +31,11 @@ class UserMailer < ApplicationMailer
     @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: "T'as commande a ete confirme par l'artiste")
   end
+
+  def refuse_order(order)
+    @user =  order.user
+    @order = order
+    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    mail(to: @user.email, subject: "Malheuresemement t'as commande a ete refusee par l'artiste")
+  end
 end

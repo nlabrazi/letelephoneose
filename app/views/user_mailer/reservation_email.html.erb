@@ -6,11 +6,11 @@
 <body>
   <h1>Salut <%= @user.first_name %> !</h1>
   <p>
-    Voici un recapitulatif de ta commande : <br>
+    Voici un récapitulatif de ta commande :<br>
 
     Destinataire : <%= @order.target %> <br>
 
-    Date de debut : <%= @order.availability.start_date.strftime('%d/%m/%y: %H:%M') %> <br>
+    Date de début : <%= @order.availability.start_date.strftime('%d/%m/%y: %H:%M') %> <br>
     Date de fin : <%= @order.availability.end_date.strftime('%d/%m/%y: %H:%M') %> <br>
 
     Artiste : <%= @order.availability.artist.name %>
