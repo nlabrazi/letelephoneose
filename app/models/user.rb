@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_one :artist
   has_one_attached :avatar
 
+  after_create :welcome_send
+
   self.per_page = 5
 
   include PgSearch
@@ -16,5 +18,9 @@ class User < ApplicationRecord
   using: {
     tsearch: {prefix: true}
   }
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 
 end

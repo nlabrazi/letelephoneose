@@ -43,8 +43,7 @@ class OrdersController < ApplicationController
   def validate
     @order = Order.find(params[:order_id])
     @availability = Availability.find(params[:availability_id])
-    @order.update(status: "confirmed")
-    if @order.save
+    if @order.update(status: "confirmed")
       redirect_to dashboard_index_path, notice: "Commande acceptée"
     else
       flash.alert = "Une erreur est survenue #{@order.errors.messages}"
