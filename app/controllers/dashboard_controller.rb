@@ -27,8 +27,8 @@ class DashboardController < ApplicationController
   def update
     @user = User.find(params[:dashboard_id])
     @user.is_artist = true
+    Artist.artist_creation(@user)
     @user.save
-    
   end
 
   private
