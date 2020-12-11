@@ -21,3 +21,11 @@
       color: #000;
     }
 }
+
+.nav-item{
+  .nav-link{
+    &:hover{
+      color: white !important;
+    }
+  }
+}
