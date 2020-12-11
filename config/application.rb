@@ -12,7 +12,7 @@ module Letelephoneose
     config.load_defaults 6.0
 
     # Translation of Devise Helpers
-    config.i18n.default_locale = :fr
+    #config.i18n.default_locale = :fr
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

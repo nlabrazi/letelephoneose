@@ -9,9 +9,7 @@ class User < ApplicationRecord
   has_one :artist
   has_one_attached :avatar
 
-  after_create :welcome_send
-
-  self.per_page = 5
+  #after_create :welcome_send
 
   include PgSearch
   pg_search_scope :search_by_name, against: [:first_name, :last_name],
@@ -19,8 +17,8 @@ class User < ApplicationRecord
     tsearch: {prefix: true}
   }
 
-  def welcome_send
-    UserMailer.welcome_email(self).deliver_now
-  end
+  # def welcome_send
+  #   UserMailer.welcome_email(self).deliver_now
+  # end
 
 end
