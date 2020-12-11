@@ -23,10 +23,9 @@ class Availability < ApplicationRecord
   def no_duplicate_availability
     self.artist.availabilities.each do |t|
       if start_date.between?(t.start_date,t.end_date)
-        errors.add(:start_date, "Deja presente")
-      end
-      if end_date.between?(t.start_date,t.end_date)
-        errors.add(:end_date, "Deja presente")
+        errors.add(:start_date, message: "Deja presente")
+      elsif end_date.between?(t.start_date,t.end_date)
+        t.errors.add(:end_date, message: "Deja presente")
       end
     end
   end
@@ -43,6 +42,9 @@ class Availability < ApplicationRecord
       slot.end_date = end_date
       slot.is_booked = false
       flag = slot.save && flag
+      if !flag
+        self.errors.add(:start_date, slot.errors.messages.first)
+      end
       start_date = end_date
       end_date += duration
     end
