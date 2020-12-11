@@ -22,10 +22,10 @@
 		<div class="col">
       <%= link_to 'Réserver cet artiste', services_path(artist_id: @artist.id), class: "btn btn-pinkwhite my-2" %>
     </div>
-		<div class="col">
-			<% if policy(@artist).update? %>
-				<%= link_to 'Edit', edit_artist_path(@artist), class: "btn btn-pinkwhite my-2" %>
-			<% end %>
-		</div>	
-	</div>
+    <div class="col">
+     <% if policy(@artist).update? %>
+     <%= link_to 'Edit', edit_artist_path(@artist), class: "btn btn-pinkwhite my-2" %>
+     <% end %>
+   </div>	
+ </div>
 </div>

@@ -32,7 +32,6 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
     @artist.user = current_user
     authorize @artist
-
     if @artist.save
       redirect_to @artist, notice: "Artist créé"
     else

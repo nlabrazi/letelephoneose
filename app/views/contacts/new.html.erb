@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h1 class="p-5">Formulaire de contact</h1>
@@ -11,7 +10,7 @@
         <%= f.input :email, label: 'Email' %>
         <%= f.input :message, as: :text, label: 'Votre message', input_html: {class: 'pinkform'} %>
         <div class="d-none">
-        <%= f.input :nickname %>
+          <%= f.input :nickname %>
         </div>
         <%= f.button :submit, class: "btn btn-lg btn-pinkwhite btn-block btn-success my-2" %>
       </div>

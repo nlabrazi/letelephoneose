@@ -7,4 +7,5 @@ class PagesController < ApplicationController
     session[:artist_id] = nil
     session[:service_id] = nil
   end
+  
 end

@@ -11,4 +11,5 @@ class ServicesController < ApplicationController
     session[:artist_id] = params.require(:artist_id) if params[:artist_id]
     redirect_to availabilities_path if session[:artist_id] && session[:service_id]
   end
+
 end
