@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  after_action :purge_session, only: [:create]
 
   def show
     @order = Order.find(params[:id])
@@ -72,4 +73,8 @@ class OrdersController < ApplicationController
     params.require(:availability_id)
   end
 
+  def purge_session
+    session[:order_service_id] = nil
+    session[:order_artist_id] = nil
+  end
 end
