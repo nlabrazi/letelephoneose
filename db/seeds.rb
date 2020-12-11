@@ -77,7 +77,7 @@ a = Artist.new
     b.is_artist = true
     b.save
     a.save
- 
+
 
  u = User.new
     u.first_name = "Mathilde"
@@ -162,7 +162,9 @@ puts ""
 
 
 p " ********************************** "
+p "                                    "
 p "......now displaying all users......"
+p "                                    "
 p " ********************************** "
 tp User.all
 puts ""
@@ -184,7 +186,6 @@ p "Creating availabilities..."
 		start_date.change( {min: [0, 15, 30, 45].sample } )
 		end_date = start_date + 15 * 60
     Availability.create! artist_id: Artist.all.sample.id, start_date: start_date, end_date: end_date, is_booked: false
-
 end
 p "Availabilities creation DONE, result below.... "
 puts ""
@@ -193,7 +194,7 @@ puts ""
 
 
 p "Creating orders..."
-3.times do
+5.times do
     o = Order.new
     o.user_id = User.all.sample.id
     o.availability_id = Availability.all.sample.id

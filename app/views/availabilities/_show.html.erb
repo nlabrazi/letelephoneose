@@ -1,3 +1,15 @@
+<%= simple_form_for [@availability] do |f| %>
+<div class="form-input">
+  <%= f.label :start_date, "Date de début" %><br />
+  <%= f.text_field :start_date, data: {behavior: "flatpickr" }, label: "Heure de début"%> <br />
+  <%= f.label :end_date, "Date de fin" %><br />
+  <%= f.text_field :end_date, data: {behavior: "flatpickr" } %>
+</div>
+<div class="form-action">
+  <%= f.submit "Creer une disponibilité", class:"btn btn-pinkwhite"%> <br />
+</div>
+<% end %>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -11,25 +23,13 @@
     <% @artist.availabilities.each do |availability| %>
     <tr>
       <td><%= availability.id %></td>
-      <td><%= availability.start_date %></td>
-      <td><%= availability.end_date %></td>
+      <td><%= availability.start_date.strftime('%d/%m/%y - %H:%M') %></td>
+      <td><%= availability.end_date.strftime('%d/%m/%y - %H:%M') %></td>
       <td><%= link_to "Effacer cette disponibilité", availability_path(current_user.id,availability.id),
       method: :delete,
       data: { confirm: t('.confirm', default: 'Etes-vous sûr ?') },
       class: 'delete' %> </td>
     </tr>
   </tbody>
-  <% end %>
-  <br>
-<%= simple_form_for [@availability] do |form| %>
-<div class="form-input">
-  <%= form.label :start_date, "Date de début" %><br />
-  <%= form.text_field :start_date, data: {behavior: "flatpickr" }, label: "Heure de début"%> <br />
-  <%= form.label :end_date, "Date de fin" %><br />
-  <%= form.text_field :end_date, data: {behavior: "flatpickr" } %>
-
-</div>
-<div class="form-action">
-  <%= form.submit "Creer une disponibilité", class:"btn btn-primary"%> <br />
-</div>
 <% end %>
+</table>
