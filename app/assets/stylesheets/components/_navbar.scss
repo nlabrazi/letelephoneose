@@ -19,16 +19,9 @@
   color: #FFF;
   &:hover{
       color: #000;
-    }
-}
-
-.nav-item{
-  .nav-link{
-    &:hover{
-      color: white !important;
-    }
   }
 }
+
 
 #navbarDropdown{
   transition-duration: .5s;
