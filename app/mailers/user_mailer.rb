@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     @user = user
 
     #on définit une variable @url qu'on utilisera dans la view d’e-mail
-    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    @url  = 'http://letelephoneose.herokuapp.com/users/sign_in'
 
     # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
     mail(to: @user.email, subject: 'Bienvenue chez Le Telephone Ose !')
@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
   def reservation_email(order)
     @user = order.user
     @order = order
-    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    @url  = 'http://letelephoneose.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: 'Confirmation reservation !')
   end
 
@@ -28,14 +28,14 @@ class UserMailer < ApplicationMailer
   def confirmation_order(order)
     @user =  order.user
     @order = order
-    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    @url  = 'http://letelephoneose.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: "T'as commande a ete confirme par l'artiste")
   end
 
   def refuse_order(order)
     @user =  order.user
     @order = order
-    @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
+    @url  = 'http://letelephoneose.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: "Malheuresemement t'as commande a ete refusee par l'artiste")
   end
 
