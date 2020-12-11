@@ -40,10 +40,11 @@ p "Creating users..."
     u = User.new
     u.first_name = Faker::Name.first_name
     u.last_name = Faker::Name.last_name
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
+    puts u.errors.messages
 end
 
 p "Users creation DONE, result at bottom !"
@@ -63,7 +64,7 @@ p "Creating artists..."
 u = User.new
     u.first_name = "David"
     u.last_name = "LeViking"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -82,7 +83,7 @@ a = Artist.new
  u = User.new
     u.first_name = "Mathilde"
     u.last_name = "Deschamps"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -101,7 +102,7 @@ a = Artist.new
  u = User.new
     u.first_name = "Clovis"
     u.last_name = "Cantador"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -120,7 +121,7 @@ a = Artist.new
  u = User.new
     u.first_name = "Jerome"
     u.last_name = "Phantom"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -139,7 +140,7 @@ a = Artist.new
 u = User.new
     u.first_name = "Laura"
     u.last_name = "Aposta"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -181,12 +182,18 @@ puts ""
 
 
 p "Creating availabilities..."
-40.times do
-		start_date = Faker::Time.between_dates(from: Time.now, to: 6.days.from_now, period: :day)
-		start_date.change( {min: [0, 15, 30, 45].sample } )
-		end_date = start_date + 15 * 60
-    Availability.create! artist_id: Artist.all.sample.id, start_date: start_date, end_date: end_date, is_booked: false
+Artist.all.each do |artist|
+  start_date = Time.new(2020, 12, 15,  9,  0,  0)
+  end_date = Time.new(2020, 12, 15, 11,  0,  0)
+  Availability.create! artist_id: artist.id, start_date: start_date, end_date: end_date, is_booked: false
+  start_date = Time.new(2020, 12, 16, 15,  0,  0)
+  end_date = Time.new(2020, 12, 16, 18,  0,  0)
+  Availability.create! artist_id: artist.id, start_date: start_date, end_date: end_date, is_booked: false
+  start_date = Time.new(2020, 12, 17,  12,  0,  0)
+  end_date = Time.new(2020, 12, 17, 14,  0,  0)
+  Availability.create! artist_id: artist.id, start_date: start_date, end_date: end_date, is_booked: false
 end
+
 p "Availabilities creation DONE, result below.... "
 puts ""
 tp Availability.all
@@ -201,7 +208,7 @@ p "Creating orders..."
     av = Availability.find(o.availability_id)
     av.is_booked = true
     o.service_id = Service.all.sample.id
-    o.target = Faker::PhoneNumber.phone_number
+    o.target = "060#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}#{rand(9)}"
     o.description = Faker::Games::WorldOfWarcraft.quote
     o.status = "pendingValidate"
     av.save
