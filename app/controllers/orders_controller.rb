@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  after_action :purge_session, only: [:create]
 
   def show
     @order = Order.find(params[:id])
@@ -8,10 +9,8 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @user = current_user
-    @artist = Artist.find(session[:artist_id])
+    @artist = Artist.find(session[:order_artist_id])
     @availability = Availability.find(params[:availability_id])
-    @services = Service.all.map{|s| s.name}
-    @services_radio = Service.all.map{|s| [s.name, s.name]}
     authorize @user
   end
 
@@ -20,7 +19,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @availability = Availability.find(order_availability_params)
     @order.availability = @availability
-    @order.service_id = Service.find(session[:service_id]).id
+    @order.service_id = Service.find(session[:order_service_id]).id
 
     @availability.is_booked = true
 
@@ -74,4 +73,8 @@ class OrdersController < ApplicationController
     params.require(:availability_id)
   end
 
+  def purge_session
+    session[:order_service_id] = nil
+    session[:order_artist_id] = nil
+  end
 end
