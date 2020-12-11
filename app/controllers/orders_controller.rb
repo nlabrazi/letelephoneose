@@ -20,8 +20,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @availability = Availability.find(order_availability_params)
     @order.availability = @availability
-    
-    @order.service_id = Service.all.sample.id
+    @order.service_id = Service.find(session[:service_id])
 
     @availability.is_booked = true
 
