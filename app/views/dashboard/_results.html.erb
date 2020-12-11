@@ -1,0 +1,36 @@
+<table id="admin-form" class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Prénom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Artiste?</th>
+      <th scope="col">TODO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone %></td>
+      <td>
+        <% if user.is_artist == true %>
+        Oui
+        <% else %>
+        Non
+        <% end %>
+      </td>
+      <% if user.is_artist == false %>
+      <td><%= link_to "Créer artiste", dashboard_update_path(user.id), method: :put, class: "btn btn-pinkwhite" %></td>
+      <% elsif user.is_artist == true %>
+      <td><%= link_to "Supprimer artiste ?", dashboard_remove_path(user.id), method: :put, class: "btn btn-danger btn-sm" %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

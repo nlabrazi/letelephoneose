@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+  <h1>Salut <%= @user.first_name %> !</h1>
+  <p>
+    Tu as une nouvelle commande : <br>
+
+    Destinataire : <%= @order.target %> <br>
+
+    Date de début : <%= @order.availability.start_date.strftime('%d/%m/%y: %H:%M') %> <br>
+    Date de fin : <%= @order.availability.end_date.strftime('%d/%m/%y: %H:%M') %> <br>
+
+    Client : <%= @order.user.email %>
+  </p>
+  <p>
+    Pour confirmer la commande : <%= @url %>
+  </p>
+  <p> À très vite !
+</body>
+</html>

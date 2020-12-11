@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h1><%= @artist.name %></h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<%= cl_image_tag @artist.artist_pp.key, id: "artist_photo", 'aria-haspopup': true, 'aria-expanded': false %>
+		</div>
+		<div class="col" id="description">
+			<p><%= @artist.description %></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<%= link_to 'Revenir à la liste des artistes', artists_path, class: "btn btn-pinkwhite my-2" %>
+		</div>
+		<div class="col">
+      <%= link_to 'Réserver cet artiste', services_path(artist_id: @artist.id), class: "btn btn-pinkwhite my-2" %>
+    </div>
+		<div class="col">
+			<% if policy(@artist).update? %>
+				<%= link_to 'Edit', edit_artist_path(@artist), class: "btn btn-pinkwhite my-2" %>
+			<% end %>
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<%#= session[:service_id] %>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-12">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Retrouvez tous nos artistes</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="list-artists">
+    <div class="home-searchbar">
+      <%= form_tag artists_path, class: "form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2", method: :get do %>
+
+      <%= text_field_tag :query, params[:query], class: "form-control form-control-sm mr-3 w-50 pinkform", placeholder:"Rechercher par nom d'artiste..."%>
+
+      <%= link_to do %>
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <% end %>
+      <% end %>
+    </div>
+    <br>
+    <div class="filter-search row">
+      <p><%= @artists.count %> Artistes trouvés, trier par.... </p>
+      <%= link_to "Nom",         artists_path(params:{query: params[:query], order: "name"}), class: "btn btn-pinkwhite", remote: true %>
+      <%= link_to "Nouveautés !", artists_path(params:{query: params[:query], order: "date"}), class: "btn btn-pinkwhite" %>
+    </div>
+    <div class="cards-product">
+      <%= render 'card', artists: @artists %>
+    </div>
+  </div>
+</div>

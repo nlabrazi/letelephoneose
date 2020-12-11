@@ -1,0 +1,21 @@
+.btn-pinkwhite {
+  color: #fff;
+  background-color: #E83E8C;
+  border-color: #fff;
+  border-radius: 10px;
+    &:hover{
+      background-color: #E83E8C;
+      color: black;
+    }
+}
+
+.btn-whitepink{
+  color: #E83E8C;
+  background-color: #fff;
+  border-color: #E83E8C;
+  border-radius: 10px;
+  &:hover{
+    background-color: #fff;
+    color: #E83E8C;
+  }
+}

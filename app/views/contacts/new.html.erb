@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="p-5">Formulaire de contact</h1>
+
+      <%= simple_form_for @contact, class: "pinkform" do |f| %>
+
+      <div class="form-inputs ">
+        <%= f.input :name, label: 'Nom', input_html: {class: 'pinkform'} %>
+        <%= f.input :email, label: 'Email', input_html: {class: 'pinkform'} %>
+        <%= f.input :message, as: :text, input_html: {rows: 7 , style: 'width: 100%'}, placeholder: "Votre message..." %>
+        <div class="d-none">
+        <%= f.input :nickname %>
+        </div>
+        <%= f.button :submit, "Envoyer", class: "btn btn-lg btn-pinkwhite btn-block my-2" %>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

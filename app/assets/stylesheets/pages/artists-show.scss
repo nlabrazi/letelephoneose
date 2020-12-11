@@ -1,0 +1,21 @@
+#artists-show {
+
+	h1 {
+		font-size: 48px;
+	}
+	
+	#description {
+		text-align: justify;
+	}
+	
+	.row {
+		margin: 5% 0;
+	}
+	
+  #artist_photo {
+    overflow: hidden;
+    height: 350px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+}

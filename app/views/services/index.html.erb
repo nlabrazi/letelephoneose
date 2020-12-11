@@ -1,0 +1,17 @@
+<div class="container container-services-title mb-5">
+  <div class="row align-items-start">
+    <div class="col-12">
+      <h1>Sélectionner votre service</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+	<div class="row d-flex justify-content-center">
+		<% @services.each do |service| %>
+			<div class="col-lg-3 d-flex justify-content-center flex-row flex-wrap card-cutsom">
+		  	<%= render 'card', service: service%>
+		  </div>
+		<% end %>
+  </div>
+</div>

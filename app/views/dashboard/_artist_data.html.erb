@@ -1,0 +1,1 @@
+<%= column_chart @orders.group_by_day(:created_at, format: "%a").count %>

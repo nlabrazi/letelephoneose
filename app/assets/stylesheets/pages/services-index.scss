@@ -1,0 +1,22 @@
+#services-index {
+
+	.container-services-title {
+	  display: flex;
+	  align-items:  center;
+	  justify-content: center;
+	}
+
+	h1 {
+		font-size: 48px;
+		margin-top: 12px;
+	}
+
+	.card-cutsom {
+  	border-radius: 2em;
+ 		border: solid 3px #D2F4F4;
+  	padding: 1em;
+  	margin: 1em 1em;
+  	transition-duration: .3s;
+	}
+
+}

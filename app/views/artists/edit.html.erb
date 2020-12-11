@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Modification du profil de <%= @artist.name %></h1>
+
+      <div class="content">
+        <%= simple_form_for @artist, class: "pinkform" do |f| %>
+        <div class="form-inputs">
+        	<%= f.label :name, "Nom" %><br />
+          <%= f.text_field :name, class: "form-control pinkform my-2" %>
+          <%= f.label :description, "Description" %><br />
+          <%= f.text_area :description, autofocus: true, label: false, as: :text, input_html: {}, placeholder: @artist.description, class: "form-control pinkform my-2 des" %>
+          <%= f.file_field :artist_pp %>
+        </div>
+        <br><br>
+        <div class="form-actions">
+          <%= f.button :submit, "Modifier", class:"btn btn-lg btn-whitepink btn-block my-2" %>
+        </div>
+        <% end %>
+        <br />
+        <div class="text-center">
+        	<%= link_to 'Afficher', @artist, class: "btn btn-pinkwhite my-2" %> |
+        	<%= link_to 'Retour', artists_path, class: "btn btn-pinkwhite my-2" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

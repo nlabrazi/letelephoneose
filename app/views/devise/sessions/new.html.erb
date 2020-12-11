@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Connexion</h1>
+      <div id="login">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: "pinkform") do |f| %>
+        <div class="form-inputs">
+          <%= f.label :email, "Email" %><br />
+          <%= f.email_field :email,
+          required: false,
+          autofocus: true, class: "form-control pinkform my-2"  %>
+          <%= f.label :password, "Mot de passe" %><br />
+          <%= f.password_field :password,
+          required: false,
+          input_html: { autocomplete: "current-password" }, 
+          class: "form-control pinkform my-2" %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+        <div class="actions mt-5">
+          <%= f.submit "Se connecter", class: "btn btn-lg btn-primary btn-block btn-pinkwhite" %>
+        </div>
+        <% end %>
+        <div class="or">ou connectez-vous via</div>
+        <div class="flex-c-m social-connector">
+          <% unless current_user %>
+          <% else %>
+          <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete %>
+          <% end %>
+        </div>
+        <div class="forgot">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

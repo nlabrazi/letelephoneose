@@ -1,0 +1,26 @@
+#dashboard-index {
+
+  .new_availability {
+    background-color: $white;
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .4);
+    margin: 30px 25px;
+    padding: 20px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .form-action {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .artist-actions {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+}

@@ -1,0 +1,28 @@
+  <% @artists.each do |artist| %>
+  <div class="card-product">
+    <%= cl_image_tag artist.artist_pp.key, id: "artist_photo", 'aria-haspopup': true, 'aria-expanded': false %>
+    <div class="card-product-infos">
+      <h3><%= artist.name %></h3>
+      <p class="details" style="font-size:20px"><%= artist.description.truncate(130) %> </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-auto">
+            <%= link_to 'Plus de détails', artist, class: "btn btn-whitepink my-2" %>
+          </div>
+          <div class="col-md-auto">
+            <%= link_to 'Réserver', services_path(artist_id: artist.id), class: "btn btn-whitepink my-2" %>
+          </div>
+          <% if policy(artist).edit? %>
+          <div class="col-md-auto">
+            <%= link_to 'Editer mon profil d artiste', edit_artist_path(artist), class: "btn btn-whitepink my-2" %>
+          </div>
+          <% end %>
+          <div class="col-md-auto">
+            <button class="btn btn-whitepink my-2"> Inscrit depuis : <%= artist.created_at.strftime("%d-%m-%Y") %> </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+

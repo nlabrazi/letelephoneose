@@ -1,0 +1,31 @@
+.navbar-mainbar {
+  justify-content: space-between;
+  background: #e83e8c;
+  position: sticky;
+  top: 0;
+  left:0;
+  z-index:5;
+}
+
+.navbar-mainbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-mainbar .navbar-brand img {
+  width: 40px;
+}
+
+.navbar-a {
+  color: #FFF;
+  &:hover{
+      color: #000;
+    }
+}
+
+.nav-item{
+  .nav-link{
+    &:hover{
+      color: white !important;
+    }
+  }
+}

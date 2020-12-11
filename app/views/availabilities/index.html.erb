@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row align-items-start">
+		<div class="col-12">
+			<h1 class="h3 mb-3 font-weight-normal text-center">Les disponibilités de l'artiste <%= @artist.name %></h1>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row text-center">
+
+		<% $first_av = nil %>
+		<% @availabilities.order(:start_date).each do |availability| %>
+		<% if availability.is_booked == false %>
+		<% if !@first_av %>
+		<% @first_av = availability.start_date %>
+		<% end %> 
+		
+		<% if @first_av.day == availability.start_date.day %>
+		<% if @first_av == availability.start_date %>
+		<div class="col-4 m-1">
+			<ul class="list-group">
+				<li class="list-group-item"><%= availability.start_date.strftime("%d/%m/%Y") %></li>
+				<li class="list-group-item"><%= availability.start_date.strftime("%H:%M") %> - <%= availability.end_date.strftime("%H:%M") %> <%= link_to 'Réserver ce créneau', new_availability_order_path(availability_id: availability.id)%></li>
+				<% else %>
+				<li class="list-group-item"><%= availability.start_date.strftime("%H:%M") %> - <%= availability.end_date.strftime("%H:%M") %> <%= link_to 'Réserver ce créneau', new_availability_order_path(availability_id: availability.id)%></li>
+				<% end %>
+
+				<% else %>
+			</ul>
+		</div>
+		<% @first_av = availability.start_date %>
+		
+		<div class="col-4 m-1">
+			<ul class="list-group">
+				<li class="list-group-item"><%= availability.start_date.strftime("%d/%m/%Y") %></li>
+				<li class="list-group-item"><%= availability.start_date.strftime("%H:%M") %> - <%= availability.end_date.strftime("%H:%M") %> <%= link_to 'Réserver ce créneau', new_availability_order_path(availability_id: availability.id)%></li>				
+				<% end %>
+				<% end %>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

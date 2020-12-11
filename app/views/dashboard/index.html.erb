@@ -1,0 +1,73 @@
+<div class="container">
+  <br>
+
+  <% if current_user.is_admin? %>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Dashboard Administrateur</h1>
+  <p>Bienvenue sur votre tableau de board administrateur</p>
+  <div id="dashboard-admin">
+    <!-- not finish -->
+    <%#= render 'admin_data' %>
+    <%= render 'admin' %>
+    <div id="show-result">
+      <%= render 'results' %>
+      <%= will_paginate @users %>
+    </div>
+  </div>
+
+
+  <% elsif current_user.is_artist? %>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Artiste</h1>
+  <div class="artist-actions">
+    <p>Bienvenue sur votre tableau de board, que souhaitez-vous faire ?</p>
+    <button class="btn btn-pinkwhite" onclick="statFunc()">Statistiques de votre activité</button>
+    <button class="btn btn-pinkwhite" onclick="orderFunc()">Afficher vos commandes</button>
+    <a class="btn btn-pinkwhite" href="#artist-create">Créer une disponibilité</a>
+    <a class="btn btn-pinkwhite" href="#artist-create">Afficher vos disponibilités</a>
+  </div>
+  <div id=dashboard-artist>
+    <div class="artist-data" id="artist-data">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Graphique de vos commandes</h1>
+      <%= render 'artist_data' %>
+    </div>
+    <div class="a" id="artist-orders">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Liste de vos commandes</h1>
+      <%= render 'artist' %>
+    </div>
+    <div class="a" id="artist-create">
+      <h1 class="h3 mb-3 font-weight-normal text-center">Créer et afficher vos disponibilités</h1>
+      <%= render '/availabilities/show' %>
+    </div>
+  </div>
+
+  <!-- custom script becaue no choice/time -->
+  <script>
+    function statFunc() {
+      let x = document.getElementById("artist-data");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function orderFunc() {
+      let x = document.getElementById("artist-orders");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+
+
+  <% else %>
+  <h1 class="h3 mb-3 font-weight-normal text-center">Tableau de board Utilisateur</h1>
+  <p>Bienvenue sur votre tableau de board d'utilisateur</p>
+  <div id="dashboard-user">
+    <%= render 'user' %>
+  </div>
+
+
+  <% end %>
+
+</div>

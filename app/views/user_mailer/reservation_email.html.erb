@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+  <h1>Salut <%= @user.first_name %> !</h1>
+  <p>
+    Voici un récapitulatif de ta commande :<br>
+
+    Destinataire : <%= @order.target %> <br>
+
+    Date de début : <%= @order.availability.start_date.strftime('%d/%m/%y: %H:%M') %> <br>
+    Date de fin : <%= @order.availability.end_date.strftime('%d/%m/%y: %H:%M') %> <br>
+
+    Artiste : <%= @order.availability.artist.name %>
+  </p>
+  <p>
+    Pour accéder à ton espace client, connecte-toi via : <%= @url %>
+  </p>
+  <p> À très vite !
+</body>
+</html>
