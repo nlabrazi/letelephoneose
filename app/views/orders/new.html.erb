@@ -18,7 +18,6 @@
         <%= f.text_field :target, autofocus: true, placeholder: "Numéro de contact", class: "form-control pinkform my-2" %>
         <%= f.label :description, "Notes pour l'artiste *" %><br />
         <%= f.text_area :description, autofocus: true, label: false, as: :text, input_html: { :rows => 7 , :style => 'width: 100%'}, placeholder: "Laissez un petit mot pour l'artiste : quelle chanson vous souhaitez, si c'est pour vous ou pour offrir...", class: "form-control pinkform my-2" %>
-        <%= f.input :service, as: :radio_buttons, required:true, collection: @services_radio %>
         <div class="text-center">
         	<%= f.button :submit, "Accéder au paiement", class: "btn btn-lg btn-pinkwhite my-2" %>
         </div>
