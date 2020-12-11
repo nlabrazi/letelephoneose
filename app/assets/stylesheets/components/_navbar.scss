@@ -31,6 +31,7 @@
 }
 
 .pp-container{
+  pointer-events: none;
   cursor: pointer;
   padding: 0.2em;
   transition-duration: .5s;
