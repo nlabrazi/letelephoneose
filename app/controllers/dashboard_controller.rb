@@ -31,6 +31,13 @@ class DashboardController < ApplicationController
     @user.save
   end
 
+  def remove_artist
+    @user = User.find(params[:dashboard_id])
+    @user.is_artist = false
+    Artist.artist_creation(@user)
+    @user.save
+  end
+
   private
 
   def set_user
