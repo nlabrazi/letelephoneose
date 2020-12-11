@@ -6,6 +6,12 @@ class Order < ApplicationRecord
   after_create :reservation_send
   after_update :confirmation_send
 
+  validates :target, presence: true,
+            numericality: { only_integer: true },
+            length: { is: 5 }
+  validates :description, length: {maximum: 500}
+  t.string "target"
+
   def reservation_send
     UserMailer.reservation_email(self).deliver_now
     UserMailer.reservation_artist_email(self).deliver_now
