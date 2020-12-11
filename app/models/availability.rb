@@ -6,7 +6,7 @@ class Availability < ApplicationRecord
 
   validate :start_date_cannot_be_in_the_past,
            :end_date_cannot_be_in_the_past,
-           :no_duplicate_availability
+           :no_duplicate_availability, on: :create
 
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < DateTime.now
