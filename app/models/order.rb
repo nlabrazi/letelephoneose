@@ -8,9 +8,9 @@ class Order < ApplicationRecord
 
   validates :target, presence: true,
             numericality: { only_integer: true },
-            length: { is: 5 }
-  validates :description, length: {maximum: 500}
-  t.string "target"
+            length: { is: 10 }
+  validates :description, presence: true,
+            length: { maximum: 500 }
 
   def reservation_send
     UserMailer.reservation_email(self).deliver_now
@@ -18,10 +18,10 @@ class Order < ApplicationRecord
   end
 
   def confirmation_send
-    if(self.status == 'confirmed')
+    if (self.status == 'confirmed')
       UserMailer.confirmation_order(self).deliver_now
     end
-    if(self.status == 'rejected')
+    if (self.status == 'rejected')
       UserMailer.refuse_order(self).deliver_now
     end
   end
