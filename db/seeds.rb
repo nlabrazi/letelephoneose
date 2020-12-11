@@ -77,7 +77,7 @@ a = Artist.new
     b.is_artist = true
     b.save
     a.save
- 
+
 
  u = User.new
     u.first_name = "Mathilde"
@@ -162,7 +162,9 @@ puts ""
 
 
 p " ********************************** "
+p "                                    "
 p "......now displaying all users......"
+p "                                    "
 p " ********************************** "
 tp User.all
 puts ""
@@ -179,7 +181,7 @@ puts ""
 
 
 p "Creating availabilities..."
-25.times do
+50.times do
     av = Availability.new
     av.artist_id = Artist.all.sample.id
     av.start_date = Faker::Time.between(from: 2.days.ago, to: Time.now)
@@ -194,7 +196,7 @@ puts ""
 
 
 p "Creating orders..."
-3.times do
+5.times do
     o = Order.new
     o.user_id = User.all.sample.id
     o.availability_id = Availability.all.sample.id

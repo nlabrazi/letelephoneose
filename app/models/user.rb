@@ -11,8 +11,6 @@ class User < ApplicationRecord
 
   after_create :welcome_send
 
-  self.per_page = 5
-
   include PgSearch
   pg_search_scope :search_by_name, against: [:first_name, :last_name],
   using: {

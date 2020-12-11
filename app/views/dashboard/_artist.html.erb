@@ -8,8 +8,8 @@
       <th scope="col">Détails</th>
       <th scope="col">Date de début</th>
       <th scope="col">Date de fin</th>
+      <th scope="col">Paiement</th>
       <th scope="col">Statut</th>
-      <th scope="col">Confirmer?</th>
     </tr>
   </thead>
   <tbody>
@@ -20,21 +20,31 @@
       <td><%= order.service.name %></td>
       <td><%= order.target %></td>
       <td><%= order.description %></td>
-      <td><%= order.availability.start_date %></td>
-      <td><%= order.availability.end_date %></td>
-      <td id="status-id"><%= order.status %></td>
+      <td><%= order.availability.start_date.strftime('%d/%m/%y - %H:%M') %></td>
+      <td><%= order.availability.end_date.strftime('%d/%m/%y - %H:%M') %></td>
+      <td id="status-id">
+        <% if order.status == "pendingValidate" %>
+        En attente de paiement
+        <% elsif order.status == "unpaid" %>
+        Non payée
+        <% elsif order.status == "confirmed" %>
+        Confirmée
+        <% elsif order.status == "rejected" %>
+        Refusée
+        <% else %>
+        Erreur - contacter l'administrateur
+        <% end %>
+      </td>
       <td> <% if order.status == "pendingValidate" %>
         <%= link_to "Valider", availability_order_validate_path(order.availability_id, order.id, order.availability.artist_id), id: "status-v-btn", class: "btn btn-success btn-block", method: :put, data: { turbolinks: false }, remote: true %>
         <%= link_to "Refuser", availability_order_refused_path(order.availability_id, order.id, order.availability.artist_id), id: "status-r-btn", class: "btn btn-danger btn-block", method: :put, data: { turbolinks: false }, remote: true %>
+        <% elsif order.status == "confirmed" %>
+        Déjà ACCEPTEE
+        <% elsif order.status == "rejected" %>
+        Déjà REFUSEE
         <% end %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><%= will_paginate @orders %></li>
-  </ul>
-</nav>

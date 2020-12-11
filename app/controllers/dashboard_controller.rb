@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
 
   def index
     @user = policy_scope(User)
-    @orders = current_user.orders.paginate(page: params[:page])
+    @orders = current_user.orders.paginate(page: params[:page], per_page: 10)
     @artist = current_user.artist
     @availability = Availability.new
     @find_availabilities = Availability.where(artist_id: @artist)
@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
         format.js { render partial: 'search-results' }
       end
     else
-      @users = User.all.paginate(page: params[:page])
+      @users = User.all.paginate(page: params[:page], per_page: 10)
     end
   end
 
