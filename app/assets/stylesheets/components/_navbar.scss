@@ -29,3 +29,13 @@
     }
   }
 }
+
+.pp-container{
+  cursor: pointer;
+  padding: 0.2em;
+  transition-duration: .5s;
+  border-radius: 50%;
+  &:hover{
+    background-color: #fff;
+  }
+}
