@@ -38,4 +38,5 @@ class UserMailer < ApplicationMailer
     @url  = 'http://letelephoneose-beta.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: "Malheuresemement t'as commande a ete refusee par l'artiste")
   end
+
 end

@@ -25,4 +25,5 @@ class Order < ApplicationRecord
       UserMailer.refuse_order(self).deliver_now
     end
   end
+
 end

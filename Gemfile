@@ -44,8 +44,11 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'pg_search'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'devise-i18n'
 gem 'simple_calendar'
+gem 'chartkick'
+gem 'groupdate'
 
 gem "mail_form", "~> 1.8"
 gem 'stripe'

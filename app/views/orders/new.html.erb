@@ -17,7 +17,7 @@
         <%= f.label :target, "Numéro de téléphone *"%><br />
         <%= f.text_field :target, autofocus: true,  required:true , placeholder: "Numéro de contact", class: "form-control pinkform my-2" %>
         <%= f.label :description, "Notes pour l'artiste *" %><br />
-        <%= f.input :description, autofocus: true, required:true, label: false, as: :text, input_html: { :rows => 7 , :style => 'width: 100%'}, placeholder: "Laissez un petit mot pour l'artiste : quelle chanson vous souhaitez, si c'est pour vous ou pour offrir...", class: "form-control pinkform my-2" %>
+        <%= f.text_area :description, autofocus: true, required:true, label: false, as: :text, input_html: { :rows => 7 , :style => 'width: 100%'}, placeholder: "Laissez un petit mot pour l'artiste : quelle chanson vous souhaitez, si c'est pour vous ou pour offrir...", class: "form-control pinkform my-2" %>
         <div class="text-center">
         	<%= f.button :submit, "Accéder au paiement", class: "btn btn-lg btn-pinkwhite my-2" %>
         </div>

@@ -8,7 +8,7 @@
       <th scope="col">Détails</th>
       <th scope="col">Date de début</th>
       <th scope="col">Date de fin</th>
-      <th scope="col">Confirmé ?</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -19,15 +19,15 @@
       <td><%= order.service.name %></td>
       <td><%= order.target %></td>
       <td><%= order.description %></td>
-      <td><%= order.availability.start_date %></td>
-      <td><%= order.availability.end_date %></td>
+      <td><%= order.availability.start_date.strftime('%d/%m/%y - %H:%M') %></td>
+      <td><%= order.availability.end_date.strftime('%d/%m/%y - %H:%M') %></td>
       <% if order.status == "pendingValidate" %>
         <td> (Payée) - En attente de confirmation de l'artiste</td>
       <% elsif order.status == "confirmed" %>
         <td> Payée et confirmée </td>
       <% else %>
-        <td> <%= link_to "Payer ma commande",new_availability_order_charge_path(order.availability.id, order.id) %> </td> 
-      <% end %> 
+        <td> <%= link_to "Payer ma commande",new_availability_order_charge_path(order.availability.id, order.id) %> </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
