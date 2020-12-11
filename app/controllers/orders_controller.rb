@@ -11,8 +11,6 @@ class OrdersController < ApplicationController
     @artist = Artist.find(session[:order_artist_id])
     @availability = Availability.find(params[:availability_id])
     authorize @user
-
-
   end
 
   def create
@@ -20,7 +18,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @availability = Availability.find(order_availability_params)
     @order.availability = @availability
-    @order.service_id = Service.find(session[:service_id]).id
+    @order.service_id = Service.find(session[:order_service_id]).id
 
     @availability.is_booked = true
 
