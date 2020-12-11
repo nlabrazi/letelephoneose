@@ -9,6 +9,10 @@ class AvailabilitiesController < ApplicationController
     if !@user.nil?
       authorize @user
     end
+    session[:order_service_id] = session[:service_id]
+    session[:order_artist_id] = session[:artist_id]
+    session[:artist_id] = nil
+    session[:service_id] = nil
   end
 
   def show
