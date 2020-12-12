@@ -22,9 +22,9 @@ class Availability < ApplicationRecord
 
   def no_duplicate_availability
     self.artist.availabilities.each do |t|
-      if start_date.between?(t.start_date,t.end_date)
+      if start_date.between?(t.start_date,t.start_date)
         errors.add(:start_date, message: "Deja presente")
-      elsif end_date.between?(t.start_date,t.end_date)
+      elsif end_date.between?(t.start_date,t.start_date)
         t.errors.add(:end_date, message: "Deja presente")
       end
     end
