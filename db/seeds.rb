@@ -40,10 +40,12 @@ p "Creating users..."
     u = User.new
     u.first_name = Faker::Name.first_name
     u.last_name = Faker::Name.last_name
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "0102030102"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
+    p "please wait a bit"
+    tp User.last
 end
 
 p "Users creation DONE, result at bottom !"
@@ -63,7 +65,7 @@ p "Creating artists..."
 u = User.new
     u.first_name = "David"
     u.last_name = "LeViking"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "0102030102"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -82,7 +84,7 @@ a = Artist.new
  u = User.new
     u.first_name = "Mathilde"
     u.last_name = "Deschamps"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "0102030102"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -101,7 +103,7 @@ a = Artist.new
  u = User.new
     u.first_name = "Clovis"
     u.last_name = "Cantador"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "0102030102"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -120,7 +122,7 @@ a = Artist.new
  u = User.new
     u.first_name = "Jerome"
     u.last_name = "Phantom"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "0102030102"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -139,7 +141,7 @@ a = Artist.new
 u = User.new
     u.first_name = "Laura"
     u.last_name = "Aposta"
-    u.phone = Faker::PhoneNumber.phone_number
+    u.phone = "0102030102"
     u.email = "#{u.first_name}.#{u.last_name}@yopmail.com"
     u.password = "123456"
     u.save
@@ -181,11 +183,12 @@ puts ""
 
 
 p "Creating availabilities..."
-40.times do
-		start_date = Faker::Time.between_dates(from: Time.now, to: 6.days.from_now, period: :day)
+20.times do
+		start_date = Faker::Time.between_dates(from: 1.days.from_now, to: 10.days.from_now, period: :day)
 		start_date.change( {min: [0, 15, 30, 45].sample } )
 		end_date = start_date + 15 * 60
     Availability.create! artist_id: Artist.all.sample.id, start_date: start_date, end_date: end_date, is_booked: false
+    tp Availability.last
 end
 p "Availabilities creation DONE, result below.... "
 puts ""
@@ -201,7 +204,7 @@ p "Creating orders..."
     av = Availability.find(o.availability_id)
     av.is_booked = true
     o.service_id = Service.all.sample.id
-    o.target = Faker::PhoneNumber.phone_number
+    o.target = "0102030102"
     o.description = Faker::Games::WorldOfWarcraft.quote
     o.status = "pendingValidate"
     av.save

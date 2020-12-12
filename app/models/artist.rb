@@ -3,7 +3,11 @@ class Artist < ApplicationRecord
   has_many :availabilities
   has_many :orders, through: :availabilities
   has_one_attached :artist_pp
+
+  validates :name, presence: true, length: { in: 1..50  }
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :user_id, uniqueness: true
+
 
   include PgSearch::Model
   pg_search_scope :search_by_name,
